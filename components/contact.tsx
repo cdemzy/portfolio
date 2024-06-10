@@ -49,7 +49,7 @@ export default function Contact() {
         <textarea
           placeholder="Message"
           name="message"
-          className="contact-input min-h-64 max-h-72"
+          className="contact-input min-h-36 max-h-44 sm:min-h-64 sm:max-h-72"
           required
         />
         <button
