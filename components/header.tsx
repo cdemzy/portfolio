@@ -6,6 +6,7 @@ import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import Mobilenav from "./mobilenav";
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -60,6 +61,10 @@ export default function Header() {
           ))}
         </ul>
       </nav>
+
+      <span className="block sm:hidden">
+        <Mobilenav />
+      </span>
     </header>
   );
 }
