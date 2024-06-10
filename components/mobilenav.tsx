@@ -7,7 +7,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
-export default function mobilenav() {
+export default function Mobilenav() {
     const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
 
