@@ -21,7 +21,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="max-w-[50rem] text-center scroll-mt-[100rem]"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -40,7 +40,7 @@ export default function Intro() {
               height="250"
               quality="95"
               priority={true}
-              className="h-40 w-40 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-52 w-52 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
 
@@ -88,7 +88,7 @@ export default function Intro() {
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-transform duration-400 focus:scale-110 hover:scale-105 hover:bg-gray-950 active:scale-100"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-transform duration-400 focus:scale-110 hover:scale-105 hover:bg-gray-950 active:scale-100 border dark:bg-gradient-to-tr dark:from-purple-800 dark:to-green-500 dark:border-green-300"
           onClick={() => {
             setActiveSection("Contact");
           }}

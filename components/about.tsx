@@ -29,7 +29,7 @@ export default function About() {
         video games, and working out.{" "}
         <span className="font-medium"></span> I am always
         broadening my tech skills and trying learning new tools, especially for{" "}
-        <span><span className="font-medium">Web Development</span>, <span className="font-medium">iOS App Development</span>,<span className="font-base"> as well as </span> <span className="font-medium">Game Development</span></span>.
+        <span><span className="font-medium">Web Development</span>, <span className="font-medium">iOS App Development</span>,<span className="font-base"> as well as </span> <span className="font-medium">Game Development</span></span>. :]
       </p>
 
     </motion.section>
