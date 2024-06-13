@@ -12,7 +12,7 @@ export default function Experience() {
   const { ref } = useSectionInView("Experience");
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-5 sm:scroll-mt-24 flex flex-col justify-center">
+    <section id="experience" ref={ref} className="scroll-mt-20 sm:scroll-mt-24 flex flex-col justify-center">
       <SectionHeading>My experience</SectionHeading>
 
       <div className="flex flex-row gap-10 justify-center items-center">

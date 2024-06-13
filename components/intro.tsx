@@ -21,7 +21,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="max-w-[50rem] text-center scroll-mt-[24rem] sm:scroll-mt-[100rem]"
+      className="max-w-[50rem] mt-12 text-center scroll-mt-[24rem] sm:scroll-mt-[100rem]"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -86,9 +86,13 @@ export default function Intro() {
           delay: 0.1,
         }}
       >
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-transform duration-400 focus:scale-110 hover:scale-105 hover:bg-gray-950 active:scale-100 border dark:bg-gradient-to-tr dark:from-purple-800 dark:to-green-500 dark:border-green-300"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:bg-gray-950 active:scale-100 border dark:bg-gradient-to-tr dark:from-purple-800 dark:hover:to-green-800/90 dark:border-purple-800/20 dark:hover:border-white/30 transition-colors"
           onClick={() => {
             setActiveSection("Contact");
           }}
@@ -96,17 +100,18 @@ export default function Intro() {
           Contact me here{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
+        </motion.div>
         
         <span className="flex gap-2">
           <a
-            className="bg-white hover:border-black/50 p-4 text-gray-700 hover:text-gray-950 flex text-[1.35rem] items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
             href="mailto:cdelacruz@dal.ca"
           >
             <MdOutlineEmail />
           </a>
 
           <a
-            className="bg-white hover:border-black/50 p-4 text-gray-700 hover:text-gray-950 text-[1.2rem] flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
             href="https://linkedin.com/in/cdemzyy"
             target="_blank"
           >

@@ -11,7 +11,7 @@ export default function About() {
   return (
     <motion.section
     ref={ref}
-    className="max-w-[45rem] text-center leading-8 scroll-mt-5 sm:scroll-mt-24"
+    className="max-w-[45rem] text-center leading-8 scroll-mt-20 sm:scroll-mt-24"
     initial={{ opacity: 0, y: 100 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.175 }}
@@ -28,7 +28,7 @@ export default function About() {
         video games, and working out.{" "}
         <span className="font-medium"></span> I am always
         broadening my tech skills by trying to learn new tools, especially for{" "}
-        <span><span className="font-medium">Web Development</span>, <span className="font-medium">iOS App Development</span>,<span className="font-base"> as well as </span> <span className="font-medium">Game Development</span></span>. :]
+        <span><span className="font-medium">Web Development</span>, <span className="font-medium">Mobile App Development</span>,<span className="font-base"> as well as </span> <span className="font-medium">Game Development</span></span>. :]
       </p>
 
     </motion.section>
