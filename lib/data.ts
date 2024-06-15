@@ -128,5 +128,6 @@ export const experiencesData = [
     "Vercel",
     "Postman",
     "RESTful APIs",
+    "Data Structures & Algorithms",
   ] as const;
 

@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useRef } from "react";
 import SectionHeading from "./section-heading";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { validateEmail } from '@/lib/helper';
+import { toast } from 'sonner';
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
@@ -13,28 +14,32 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  
-  async function handleSignup (event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if(!name){
-        setError("Please enter your name.");
-        return;
-    }
-    if(!validateEmail(email)){
-      setError("Please enter your email address.");
-      return;
-    }
-  }
-
   const [submitResult, setSubmitError] = useState<string | null>(null);
 
-  // Form submit
+  const formRef = useRef<HTMLFormElement>(null); // Create a reference to the form
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitError("Sending...");
-    setSubmitError(null);
+
+    if (!name) {
+      toast.error("Please enter your name.");
+      return;
+    }
+
+    if (!email) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    if (!message) {
+      toast.error("Please enter your message.");
+      return;
+    }
 
     const formData = new FormData(event.currentTarget);
 
@@ -66,7 +71,9 @@ export default function Contact() {
 
       if (data.success) {
         setSubmitError("Sent!");
-        event.currentTarget.reset();
+        if (formRef.current) {
+          formRef.current.reset(); // Use the form reference to reset the form
+        }
         setTimeout(() => {
           setSubmitError("Send");
         }, 5000);
@@ -79,6 +86,8 @@ export default function Contact() {
       console.error("Error submitting form", error);
       setSubmitError("Error submitting form");
     }
+
+    toast.success("Email sent successfully!");
   }
 
   return (
@@ -93,6 +102,7 @@ export default function Contact() {
     >
       <SectionHeading>Contact Me</SectionHeading>
       <form
+        ref={formRef} // Attach the reference to the form
         className="flex flex-col p-4 border rounded-xl mt-10 gap-3 bg-white/80 dark:bg-[#2b303c] dark:border-white/20 dark:text-white/80 backdrop-blur-[0.05rem] dark:border-g-1 shadow-md"
         onSubmit={handleSubmit}
       >
@@ -105,12 +115,11 @@ export default function Contact() {
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          type="email"
+          type="text"
           name="email"
           placeholder="Email"
           className="contact-input"
           onChange={(e) => setEmail(e.target.value)}
-          
         />
         <textarea
           placeholder="Message"
@@ -118,7 +127,6 @@ export default function Contact() {
           className="contact-input min-h-36 max-h-44 sm:min-h-64 sm:max-h-72"
           onChange={(e) => setMessage(e.target.value)}
         />
-        {error && <p className="text-red-500 text-start text-sm">{error}</p>}
         <button
           type="submit"
           className="font-medium select-none rounded-lg bg-neutral-800 dark:bg-neutral-200 p-3 active:bg-L-2 hover:bg-L-1 dark:hover:bg-w-2 text-white dark:text-black/80"
