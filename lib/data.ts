@@ -1,7 +1,7 @@
 import React from "react";
 
 import { CgWorkAlt } from "react-icons/cg";
-import { FaUnity } from "react-icons/fa";
+import { TbBrandUnity   } from "react-icons/tb";
 import { LuGraduationCap } from "react-icons/lu";
 
 import { IoHome } from "react-icons/io5";
@@ -53,7 +53,7 @@ export const links = [
 
 export const experiencesData = [
     {
-      title: "Web Developer",
+      title: "Software Developer",
       place: "Freelance", 
       location: "Remote",
       description:"",
@@ -66,7 +66,7 @@ export const experiencesData = [
       place: "Dalhousie University", 
       location: "Halifax, NS",
       description:"",
-      icon: React.createElement(FaUnity),
+      icon: React.createElement(TbBrandUnity),
       date: "Jan 2024 - Apr 2024",
       imageUrl: DalYellow,
     },
@@ -113,21 +113,15 @@ export const experiencesData = [
     "Node.js",
     "Git",
     "Tailwind",
-    "Express",
-    "MongoDB",
     "MySQL",
-    "Wireshark",
     "Java",
     "JUnit5",
     "C#",
     "Unity",
-    "Framer Motion",
     "Figma",
     "Jira",
     "GitHub",
-    "Vercel",
-    "Postman",
-    "RESTful APIs",
     "Data Structures & Algorithms",
+    "Technical Documentation",
   ] as const;
 

@@ -92,7 +92,7 @@ export default function Intro() {
         >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:bg-gray-950 active:scale-100 border dark:bg-gradient-to-tr dark:from-purple-800 dark:hover:to-green-800/90 dark:border-purple-800/20 dark:hover:border-white/30 transition-colors"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:bg-gray-950 active:scale-100 border dark:bg-gradient-to-tr dark:from-purple-800 dark:hover:to-white/30 dark:border-black/20 transition-colors"
           onClick={() => {
             setActiveSection("Contact");
           }}
@@ -104,14 +104,14 @@ export default function Intro() {
         
         <span className="flex gap-2">
           <a
-            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
+            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.5rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
             href="mailto:cdelacruz@dal.ca"
           >
             <MdOutlineEmail />
           </a>
 
           <a
-            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
+            className="bg-white hover:border-black/50 p-4 text-gray-700 flex items-center gap-2 text-[1.2rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-transform duration-400 cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/60"
             href="https://linkedin.com/in/cdemzyy"
             target="_blank"
           >

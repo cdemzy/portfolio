@@ -26,16 +26,23 @@ export default function Experience() {
               <BsTriangleFill className="absolute text-neutral-300 dark:text-white hidden sm:block -rotate-90 left-[-14px] -z-10"/>
               <Image src={item.imageUrl} alt='Company Logo' className="rounded-full w-[75px] h-[75px]"/>
               
-              <span className="text-[30pt] absolute bg-white rounded-full p-4 shadow-md -left-[140px] dark:bg-[#2b303c] dark:text-white/80 items-center justify-center text-center hidden sm:flex">{item.icon}</span>
+              <div className="sm:items-center sm:justify-center absolute bg-white rounded-full p-4 shadow-md -left-[140px] dark:bg-[#2b303c] dark:text-white/80 hidden sm:flex">
+                <span className="text-[30pt] ">
+                  {item.icon}
+                </span>
+              </div>
+              
               <span>
-              <h3 className="font-semibold">{item.title}</h3>
-              <h3 className="text-sm text-black dark:text-white/70 capitalize">{item.place}</h3>
-              <p className="text-sm text-gray-700 dark:text-white/60 !mt-0">{item.location}</p>
-              <p className="text-sm text-gray-700 dark:text-white/50 !mt-0">{item.date}</p>
+                <h3 className="font-semibold">{item.title}</h3>
+                <h3 className="text-sm text-black dark:text-white/70 capitalize">{item.place}</h3>
+                <p className="text-sm text-gray-700 dark:text-white/60 !mt-0">{item.location}</p>
+                <p className="text-sm text-gray-700 dark:text-white/50 !mt-0">{item.date}</p>
               </span>
+
               <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                 {item.description}
               </p>
+              
             </li>
           ))}
         </ul>
