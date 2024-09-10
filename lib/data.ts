@@ -16,6 +16,7 @@ import DalYellow from '@/public/general-logos/dalYellow.png'
 import CharlesStudio  from '@/public/general-logos/charlestudio.png'
 import NotesApp from '@/public/projects/notes/Cover.png'
 import Flappy from '@/public/projects/flappybird/Cover.png'
+import Cafe from '@/public/projects/Cafe/cafe.png'
 
 
 export const links = [
@@ -82,12 +83,12 @@ export const experiencesData = [
   ] as const;
 
   export const projectsData = [
-    // {
-    //   title: "Portfolio Website",
-    //   description:"This Website!",
-    //   tags: ["React", "TypeScript", "Tailwind", "Next.js"],
-    //   imageUrl: NotesApp,
-    // },
+    {
+      title: "Coffee Shop",
+      description:"An open source project to showcase my front-end development skills to potential clients as a freelance developer!",
+      tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Mapbox-GL"],
+      imageUrl: Cafe,
+    },
     {
       title: "Notes",
       description:"An open source project that I started on April 2024 to learn the aspects of full-stack development...",
@@ -121,7 +122,7 @@ export const experiencesData = [
     "Figma",
     "Jira",
     "GitHub",
+    "Postman",
     "Data Structures & Algorithms",
     "Technical Documentation",
   ] as const;
-
