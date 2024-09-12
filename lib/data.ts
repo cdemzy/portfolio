@@ -12,6 +12,7 @@ import { IoBriefcase } from "react-icons/io5";
 import { IoMail } from "react-icons/io5";
 
 import Dalhousie from '@/public/general-logos/dal-logo.png'
+import ideaLogo from '@/public/general-logos/idea-logo.jpeg'
 import DalYellow from '@/public/general-logos/dalYellow.png'
 import CharlesStudio  from '@/public/general-logos/charlestudio.png'
 import NotesApp from '@/public/projects/notes/Cover.png'
@@ -64,12 +65,12 @@ export const experiencesData = [
     },
     {
       title: "Junior Developer",
-      place: "Dalhousie University", 
+      place: "Dalhousie Emera ideaHub", 
       location: "Halifax, NS",
       description:"",
       icon: React.createElement(TbBrandUnity),
       date: "Jan 2024 - Apr 2024",
-      imageUrl: DalYellow,
+      imageUrl: ideaLogo,
     },
     {
       title: "Bachelor of Applied Computer Science",
@@ -85,7 +86,7 @@ export const experiencesData = [
   export const projectsData = [
     {
       title: "Coffee Shop",
-      description:"An open source project to showcase my front-end development skills to potential clients as a freelance developer!",
+      description:"An open source project that I started to test out new development tools and frameworks to improve my front-end developement skills!",
       tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Mapbox-GL"],
       imageUrl: Cafe,
     },
@@ -116,13 +117,12 @@ export const experiencesData = [
     "Tailwind",
     "MySQL",
     "Java",
-    "JUnit5",
     "C#",
     "Unity",
+    "Android Studio",
     "Figma",
     "Jira",
     "GitHub",
-    "Postman",
     "Data Structures & Algorithms",
     "Technical Documentation",
   ] as const;

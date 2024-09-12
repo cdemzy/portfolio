@@ -29,7 +29,7 @@ export default function Skills() {
       ref={ref}
       className="max-w-[53rem] scroll-mt-20 sm:scroll-mt-24 text-center"
     >
-      <SectionHeading>My skills</SectionHeading>
+      <SectionHeading>Featured skills</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
         {skillsData.map((skill, index) => (
           <motion.li
@@ -41,8 +41,8 @@ export default function Skills() {
             viewport={{
               once: true,
             }}
-            whileHover={{scale: 1.2}}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            whileHover={{scale: 1.1}}
+            transition={{ type: "spring", stiffness: 300, damping: 10 }}
             custom={index}
           >
             {skill}
