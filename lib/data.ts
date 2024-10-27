@@ -60,7 +60,7 @@ export const experiencesData = [
       location: "Remote",
       description:"",
       icon: React.createElement(CgWorkAlt),
-      date: "May 2024 - Present",
+      date: "May 2024 - Aug 2024",
       imageUrl: CharlesStudio,
     },
     {
