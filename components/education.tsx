@@ -3,34 +3,25 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import "react-vertical-timeline-component/style.min.css";
-import { experiencesData } from "@/lib/data";
+import { educationData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-import { BsTriangleFill } from "react-icons/bs";
 import Image from "next/image";
 
-export default function Experience() {
-  const { ref } = useSectionInView("Experience");
+export default function Education() {
+  const { ref } = useSectionInView("Education");
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-20 sm:scroll-mt-24 flex flex-col justify-center">
-      <SectionHeading>My experience</SectionHeading>
+    <section id="education" ref={ref} className="scroll-mt-20 sm:scroll-mt-24 flex flex-col justify-center">
+      <SectionHeading>My Education</SectionHeading>
 
       <div className="flex flex-row gap-10 justify-center items-center">
-
-          {/* <div className="bg-gray-200 dark:bg-white/10 dark:text-white/90 h-[360px] w-1 rounded-full hidden sm:block dark:bg-opacity-20 mr-[62px]"></div> */}
-
+        
           <ul className="grid grid-cols-1 gap-10">
-            {experiencesData.map((item, index) => (
+            {educationData.map((item, index) => (
             <li key={index} className="bg-neutral-100/70 dark:bg-white/10 dark:text-white/80 rounded-lg shadow-md p-4 flex flex-row gap-4 items-center relative"
             >
-              {/* <BsTriangleFill className="absolute text-neutral-300 dark:text-white hidden sm:block -rotate-90 left-[-14px] -z-10"/> */}
-              <Image src={item.imageUrl} alt='Company Logo' className="rounded-full w-[90px] h-[90px]"/>
               
-              {/* <div className="sm:items-center sm:justify-center absolute bg-white rounded-full p-4 shadow-md -left-[140px] dark:bg-[#2b303c] dark:text-white/80 hidden sm:flex">
-                <span className="text-[30pt] ">
-                  {item.icon}
-                </span>
-              </div> */}
+              <Image src={item.imageUrl} alt='Company Logo' className="rounded-full w-[75px] h-[75px]"/>
               
               <span>
                 <h3 className="font-semibold capitalize">{item.title}</h3>

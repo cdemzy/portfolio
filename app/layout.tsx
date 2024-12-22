@@ -7,6 +7,7 @@ import ThemeContextProvider from "@/context/theme-context";
 import Header from "@/components/header";
 import ThemeSwitch from '@/components/theme-switch';
 import { Toaster } from "sonner";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className='!scroll-smooth'>
       <body
@@ -31,7 +33,7 @@ export default function RootLayout({
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Header />
+            <Header/>
             {children}
 
           </ActiveSectionContextProvider>
@@ -39,6 +41,8 @@ export default function RootLayout({
           <Toaster position="bottom-left" richColors />
           <ThemeSwitch />
         </ThemeContextProvider>
+
+        <Footer/>
       </body>
     </html>
   );

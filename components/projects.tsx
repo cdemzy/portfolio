@@ -19,6 +19,7 @@ export default function Projects() {
           </React.Fragment>
         ))}
       </div>
+      {/* <ViewMoreProjects/> */}
     </section>
   );
 }
