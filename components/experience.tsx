@@ -24,7 +24,7 @@ export default function Experience() {
             <li key={index} className="bg-neutral-100/70 dark:bg-white/10 dark:text-white/80 rounded-lg shadow-md p-4 flex flex-row gap-4 items-center relative"
             >
               {/* <BsTriangleFill className="absolute text-neutral-300 dark:text-white hidden sm:block -rotate-90 left-[-14px] -z-10"/> */}
-              <Image src={item.imageUrl} alt='Company Logo' className="rounded-full w-[90px] h-[90px]"/>
+              <Image src={item.imageUrl} alt='Company Logo' className="rounded-full w-[100px] h-[100px]"/>
               
               {/* <div className="sm:items-center sm:justify-center absolute bg-white rounded-full p-4 shadow-md -left-[140px] dark:bg-[#2b303c] dark:text-white/80 hidden sm:flex">
                 <span className="text-[30pt] ">

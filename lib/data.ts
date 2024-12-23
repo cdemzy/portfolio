@@ -101,8 +101,9 @@ export const educationData = [
   {
     title: "Bachelor of Applied Computer Science",
     place: "Dalhousie University", 
-    location: "Halifax, NS",
-    description:"",
+    location: "Halifax, NS, Canada",
+    description:"Certificate in Web & Mobile Development (In Progress)",
+    description2:"Certificate in User Experience Design and Evaluation (In Progress)",
     icon: React.createElement(LuGraduationCap),
     date: "Sep 2022 - Aug 2026 (Present)",
     imageUrl: Dalhousie,
@@ -112,26 +113,26 @@ export const educationData = [
 export const projectsData = [
   {
     title: "Terrain Engineer",
-    description:"An open-source video game project that I am developing in collaboration with two other developers to create an engaging and interactive open-world gaming experience.",
-    tags: ["Unity", "C#", "Github"],
+    description:"An open-source video game project that I am developing in collaboration with two other developers to create an engaging and interactive open-world gaming experience...",
+    tags: ["Unity", "C#", "Firebase", "Git", "Game Development"],
     imageUrl: TerrainEng,
   },
   {
     title: "Dalhousie Forum",
-    description:"An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions.",
-    tags: ["PHP", "MySQL", "JavaScript"],
+    description:"An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions...",
+    tags: ["PHP", "MySQL", "JavaScript", "Server-side Scripting"],
     imageUrl: Forum,
   },
   {
     title: "Online Barter Trader",
-    description:"An academic mobile application project that is focused on enabling users to exchange items with others through a barter system.",
-    tags: ["Android Studio", "Java", "Firebase"],
+    description:"A semester-long academic mobile application project focused on enabling users to exchange items through a user-centric barter system...",
+    tags: ["Android Studio", "Java", "Firebase", "Mobile Development"],
     imageUrl: Barter,
   },
   {
     title: "Notes",
     description:"An open source project that I started on April 2024 to learn the aspects of full-stack development...",
-    tags: ["React", "Tailwind", "MongoDB", "Express.js", "RESTful API"],
+    tags: ["React", "Tailwind", "MongoDB", "Express.js", "RESTful API", "Full-Stack Development"],
     imageUrl: NotesApp,
   },
   // {
