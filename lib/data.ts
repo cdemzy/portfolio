@@ -26,6 +26,7 @@ import Flappy from '@/public/projects/flappybird/Cover.png'
 import TerrainEng from '@/public/projects/terrain-engineer/terr-mockup.png'
 import Cafe from '@/public/projects/Cafe/cafe.png'
 import Forum from '@/public/projects/dalForum/dal-forum.png'
+import Barter from '@/public/projects/barter/barter-proto.png'
 
 
 export const links = [
@@ -120,6 +121,12 @@ export const projectsData = [
     description:"An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions.",
     tags: ["PHP", "MySQL", "JavaScript"],
     imageUrl: Forum,
+  },
+  {
+    title: "Online Barter Trader",
+    description:"An academic mobile application project that is focused on enabling users to exchange items with others through a barter system.",
+    tags: ["Android Studio", "Java", "Firebase"],
+    imageUrl: Barter,
   },
   {
     title: "Notes",
