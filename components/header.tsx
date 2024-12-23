@@ -23,13 +23,13 @@ export default function Header() {
 
       {/* Mobile */}
       <motion.div
-        className="block sm:hidden fixed top-[0.7rem] left-1/2 h-[4rem] w-[90%] rounded-full border border-gray-300 border-opacity-40 bg-white shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40"
+        className="block sm:hidden fixed top-[0.7rem] left-1/2 h-[4rem] w-[95vw] rounded-full border border-gray-300 border-opacity-40 bg-white shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       ></motion.div>
 
       <nav className="flex fixed top-[1.15rem] sm:bottom-auto left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0 mx-auto px-2">
-        <ul className="flex bottom-0 sm:bottom-auto items-center justify-center gap-y-1 gap-2 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex sm:flex-nowrap sm:gap-5">
+        <ul className="flex bottom-0 sm:bottom-auto items-center justify-center gap-y-1 gap-2 text-[0.9rem] font-medium text-gray-500 w-full sm:w-[initial] sm:flex sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <motion.li
               className="h-3/4 flex items-center justify-center relative"
@@ -52,11 +52,11 @@ export default function Header() {
                 }}
               >
                 <span className="hidden sm:block">{link.name}</span>
-                <span className="block sm:hidden text-[6vw]">{link.icon}</span>
+                <span className="block sm:hidden text-[4.5vw]">{link.icon}</span>
 
                 {link.name === activeSection && (
                   <motion.span
-                    className="bg-gray-400/20 rounded-full absolute inset-0 -z-10 dark:bg-gray-800 px-2 py-6 sm:py-0 sm:px-0 top-[-.7rem] sm:top-0"
+                    className="bg-gray-400/20 rounded-full absolute sm:inset-0 inset-[-3px] -z-10 dark:bg-gray-800 px-6 py-6 sm:py-0 sm:px-0 top-[-.7rem] sm:top-0"
                     layoutId="activeSection"
                     transition={{
                       type: "spring",
