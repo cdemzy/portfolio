@@ -114,7 +114,7 @@ export const projectsData = [
   {
     title: "Terrain Engineer",
     description:"An open-source video game project that I am developing in collaboration with two other developers to create an engaging and interactive open-world gaming experience...",
-    tags: ["Unity", "C#", "Firebase", "Git", "Game Development"],
+    tags: ["Unity", "C#", "Git", "Game Development"],
     imageUrl: TerrainEng,
   },
   {
