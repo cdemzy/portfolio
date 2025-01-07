@@ -70,7 +70,7 @@ export const links = [
 export const experiencesData = [
     // {
     //   title: "Junior Programmer",
-    //   place: "Government of Canada", 
+    //   place: "Public Service Commission of Canada", 
     //   location: "Halifax, NS",
     //   description:"",
     //   icon: React.createElement(CgWorkAlt),
@@ -111,12 +111,12 @@ export const educationData = [
 ] as const;
 
 export const projectsData = [
-  {
-    title: "Terrain Engineer",
-    description:"An open-source video game project that I am developing in collaboration with two other developers to create an engaging and interactive open-world gaming experience...",
-    tags: ["Unity", "C#", "Git", "Game Development"],
-    imageUrl: TerrainEng,
-  },
+  // {
+  //   title: "Terrain Engineer",
+  //   description:"An open-source video game project that I am developing in collaboration with two other developers to create an engaging and interactive open-world gaming experience...",
+  //   tags: ["Unity", "C#", "Git", "Game Development"],
+  //   imageUrl: TerrainEng,
+  // },
   {
     title: "Dalhousie Forum",
     description:"An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions...",
