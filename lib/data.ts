@@ -68,18 +68,18 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
-    // {
-    //   title: "Junior Programmer",
-    //   place: "Public Service Commission of Canada", 
-    //   location: "Halifax, NS",
-    //   description:"",
-    //   icon: React.createElement(CgWorkAlt),
-    //   date: "Jan 2025 - Apr 2025",
-    //   imageUrl: GovCan,
-    // },
+    {
+      title: "Junior Programmer",
+      place: "Public Service Commission of Canada", 
+      location: "Halifax, NS",
+      description:"",
+      icon: React.createElement(CgWorkAlt),
+      date: "Jan 2025 - Present",
+      imageUrl: GovCan,
+    },
     {
       title: "Software Developer",
-      place: "Freelance", 
+      place: "Freelance",
       location: "Remote",
       description:"",
       icon: React.createElement(CgWorkAlt),
@@ -88,7 +88,7 @@ export const experiencesData = [
     },
     {
       title: "Junior Student Developer",
-      place: "Dalhousie Emera ideaHub", 
+      place: "Dalhousie Emera ideaHub",
       location: "Halifax, NS",
       description:"",
       icon: React.createElement(TbBrandUnity),
