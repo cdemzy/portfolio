@@ -74,7 +74,7 @@ export const experiencesData = [
       location: "Halifax, NS",
       description:"",
       icon: React.createElement(CgWorkAlt),
-      date: "Jan 2025 - Present",
+      date: "Jan 2025 - Apr 2025",
       imageUrl: GovCan,
     },
     {
