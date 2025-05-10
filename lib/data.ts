@@ -105,7 +105,7 @@ export const educationData = [
     description:"Certificate in Web & Mobile Development (In Progress)",
     description2:"Certificate in User Experience Design and Evaluation (In Progress)",
     icon: React.createElement(LuGraduationCap),
-    date: "Sep 2022 - Aug 2026 (Present)",
+    date: "Third Year",
     imageUrl: Dalhousie,
     },
 ] as const;
