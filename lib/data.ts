@@ -17,7 +17,7 @@ import { IoMail } from "react-icons/io5";
 import Dalhousie from '@/public/general-logos/dal-logo.png'
 import ideaLogo from '@/public/general-logos/idea-logo.png'
 import GovCan from '@/public/general-logos/gov-canada.png'
-import DalYellow from '@/public/general-logos/dalYellow.png'
+import Quest from '@/public/general-logos/quest.png'
 
 // Projects
 import CharlesStudio  from '@/public/general-logos/charlestudio.png'
@@ -68,6 +68,15 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
+    {
+      title: "Software Developer Intern",
+      place: "Quest Software", 
+      location: "Remote",
+      description:"",
+      icon: React.createElement(CgWorkAlt),
+      date: "Sep 2025 - Present",
+      imageUrl: Quest,
+    },
     {
       title: "Junior Programmer",
       place: "Public Service Commission of Canada", 
