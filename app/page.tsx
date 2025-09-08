@@ -21,8 +21,8 @@ export default function Home() {
       <Experience />
       <SectionDivider />
       <Education />
-      <SectionDivider />
-      <Contact />
+      {/* <SectionDivider />
+      <Contact /> */}
     </main>
   );
 }
