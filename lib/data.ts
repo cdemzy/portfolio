@@ -60,11 +60,11 @@ export const links = [
       hash: "#education",
       icon: React.createElement(IoSchool)
     },
-    {
-      name: "Contact",
-      hash: "#contact",
-      icon: React.createElement(IoMail)
-    },
+    // {
+    //   name: "Contact",
+    //   hash: "#contact",
+    //   icon: React.createElement(IoMail)
+    // },
 ] as const;
 
 export const experiencesData = [
