@@ -4,7 +4,7 @@ import "./globals.css";
 
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeContextProvider from "@/context/theme-context";
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import ThemeSwitch from '@/components/theme-switch';
 import { Toaster } from "sonner";
 import Footer from "@/components/footer";
