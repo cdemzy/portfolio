@@ -11,7 +11,7 @@ export default function Education() {
   const { ref } = useSectionInView("Education");
 
   return (
-    <section id="education" ref={ref} className="scroll-mt-20 sm:scroll-mt-24 flex flex-col justify-center">
+    <section id="education" ref={ref} className="scroll-mt-20 sm:scroll-mt-24 flex flex-col justify-center mb-20">
       <SectionHeading>My Education</SectionHeading>
 
       <div className="flex flex-row gap-10 justify-center items-center">
