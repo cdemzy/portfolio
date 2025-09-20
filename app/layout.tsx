@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/app/components/ThemeProvider"
 
-import ActiveSectionContextProvider from "@/context/active-section-context";
-import ThemeContextProvider from "@/context/theme-context";
-import Header from "@/components/header/header";
-import ThemeSwitch from '@/components/theme-switch';
-import { Toaster } from "sonner";
-import Footer from "@/components/footer";
+import Navigation from "./components/Navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Charles Dela Cruz",
-  description: "Personal Portfolio",
+  description: "My Portfolio",
 };
 
 export default function RootLayout({
@@ -21,29 +25,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-    <html lang="en" className='!scroll-smooth'>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-gray-50 transition-colors text-gray-950 relative pt-12 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className="antialiased scroll-smoth font-sans px-4 py-3"
       >
-
-        <div className='hidden sm:block bg-[#e2fbe6] dark:bg-[#548d4c] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]'></div>
-        <div className='hidden sm:block bg-[#fbf0d7] dark:bg-[#4d3870] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]'></div>
-
-        <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <Header/>
-            {children}
-
-          </ActiveSectionContextProvider>
-
-          <Toaster position="bottom-left" richColors />
-          <ThemeSwitch />
-        </ThemeContextProvider>
-
-        <Footer/>
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+        <Navigation/>
+        {children}
+        </ThemeProvider>
       </body>
     </html>
   );
-};
+}
