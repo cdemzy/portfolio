@@ -13,6 +13,5 @@ This is my personal portfolio website! It showcases my featured projects, skills
 - RSS Feed
 - Dynamic OG images
 - Syntax highlighting
-- Tailwind v4
 - Vercel Speed Insights / Web Analytics
 - Geist font
