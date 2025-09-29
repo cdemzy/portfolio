@@ -1,7 +1,14 @@
+"use client";
+import Intro from "./components/Intro"
+import Experience from "./components/Experience";
+import Connect from "./components/Connect";
+
 export default function Home() {
   return (
-    <div className="max-w-screen-md mx-auto text-center">
-    Hello World
-    </div>
+    <main className="flex flex-col gap-12">
+      <Intro/>
+      <Experience/>
+      <Connect/>
+    </main>
   );
 }
