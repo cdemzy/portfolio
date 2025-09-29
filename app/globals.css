@@ -33,4 +33,8 @@ body {
   .index-section{
     @apply flex flex-col gap-6
   }
+
+  h2, h1{
+    @apply text-lg
+  }
 }
