@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 const links = [
     {
       path: "/",
-      title: "Home",
+      title: "Index",
     },
     {
       path: "/projects",
@@ -17,10 +17,10 @@ const links = [
     const pathname = `/${usePathname().split("/")[1]}`;
 
     return (
-      <nav>
-        <ul className="flex flex-row border-b">
+      <nav className="border-b border-border flex justify-end">
+        <ul className="flex flex-row">
             {links.map((link) => (
-                <li key={link.path} className="px-2">
+                <li key={link.path} className="px-2 pb-2.5">
                     <Link href={link.path}>{link.title}</Link>
                 </li>
             ))}
