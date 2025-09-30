@@ -5,7 +5,10 @@ export default function Intro() {
     <section className="index-section" id="Intro">
       <h1>Charles Dela Cruz</h1>
       <article className="text-secondary">
-        Hello World!
+        <p className="textbase">
+          I'm a third-year Computer Science student at Dalhousie University.
+          As a software developer, I am focused on building delightful user experience through my work.
+        </p>
       </article>
     </section>
   )
