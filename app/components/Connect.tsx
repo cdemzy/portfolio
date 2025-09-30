@@ -5,12 +5,12 @@ import { IoLogoLinkedin, IoLogoGithub } from 'react-icons/io';
 const socialLinks = [
 	{
 		name: 'LinkedIn',
-		url: 'https://linkedin.com/in/your-profile',
+		url: 'https://linkedin.com/in/cdemzyy',
 		icon: IoLogoLinkedin
 	},
 	{
 		name: 'GitHub',
-		url: 'https://github.com/your-username',
+		url: 'https://github.com/cdemzy',
 		icon: IoLogoGithub
 	}
 ] as const;
