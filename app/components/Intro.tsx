@@ -7,7 +7,7 @@ export default function Intro() {
       <article className="text-secondary">
         <p className="textbase">
           I'm a third-year Computer Science student at Dalhousie University.
-          As a software developer, I am focused on building delightful user experience through my work.
+          As a software developer, I focus on building elevated user experiences by creating applications and projects that bring ideas to life.
         </p>
       </article>
     </section>
