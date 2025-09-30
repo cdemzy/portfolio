@@ -3,17 +3,23 @@
 :root {
   --background: #fcfcfc;
   --foreground: #0a0a0a;
+  --secondary-foreground: #;
+  --secondary-bg: #ebebeb;
+
   --border: #262626;
-  --secondary: #a3a3a3;
-  --dark-bg-secondary: #212121;
+  --foreground-dark: #a3a3a3;
+  --secondary-bg-dark: #212121;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-secondary-foreground: var(--foreground-dark);
+
+  --foreground-dark: var(--secondary);
   --color-border: var(--border);
-  --color-secondary: var(--secondary);
-  --color-dark-bg-secondary: var(--dark-bg-secondary);
+  --color-secondary-bg-dark: var(--secondary-bg-dark);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

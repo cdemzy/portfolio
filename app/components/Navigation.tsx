@@ -70,7 +70,7 @@ const links = [
                         className={`px-2 py-1.25 rounded-lg relative z-10 block ${
                             pathname === link.path 
                                 ? 'text-foreground' 
-                                : 'text-secondary hover:text-foreground'
+                                : 'text-secondary-foreground hover:text-foreground'
                         } transition-colors duration-200`}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
@@ -81,7 +81,7 @@ const links = [
             ))}
             
             <motion.div
-                className="absolute bg-dark-bg-secondary rounded-lg"
+                className="absolute bg-secondary-bg dark:bg-secondary-bg-dark rounded-lg"
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: hoveredIndex !== null ? 1 : 0,
