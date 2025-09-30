@@ -18,6 +18,7 @@ const links = [
   export default function Navigation() {
     const pathname = `/${usePathname().split("/")[1]}`;
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [previousHoveredIndex, setPreviousHoveredIndex] = useState<number | null>(null);
     const [linkDimensions, setLinkDimensions] = useState<Array<{x: number, width: number, height: number, top: number}>>([]);
     const linkRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -72,8 +73,14 @@ const links = [
                                 ? 'text-foreground' 
                                 : 'text-secondary-foreground hover:text-foreground'
                         } transition-colors duration-200`}
-                        onMouseEnter={() => setHoveredIndex(index)}
-                        onMouseLeave={() => setHoveredIndex(null)}
+                        onMouseEnter={() => {
+                          setPreviousHoveredIndex(hoveredIndex);
+                          setHoveredIndex(index);
+                        }}
+                        onMouseLeave={() => {
+                          setPreviousHoveredIndex(hoveredIndex);
+                          setHoveredIndex(null);
+                        }}
                     >
                         {link.title}
                     </Link>
@@ -85,10 +92,10 @@ const links = [
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: hoveredIndex !== null ? 1 : 0,
-                    x: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].x : (linkDimensions[0]?.x || 0),
-                    width: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].width : (linkDimensions[0]?.width || 0),
-                    height: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].height : (linkDimensions[0]?.height || 0),
-                    top: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].top : (linkDimensions[0]?.top || 0),
+                    x: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].x : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].x : 0),
+                    width: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].width : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].width : 0),
+                    height: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].height : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].height : 0),
+                    top: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].top : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].top : 0),
                 }}
                 transition={{
                     type: "spring",
