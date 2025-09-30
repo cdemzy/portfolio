@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Charles Dela Cruz",
-  description: "My Portfolio",
+  description: "Portfolio",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
-        className="antialiased scroll-smoth font-sans px-4 py-3"
+        className="antialiased scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto max-w-[652px]"
       >
         <ThemeProvider
             attribute="class"
