@@ -53,7 +53,7 @@ export default function Experience() {
               <p className="exp-title">{exp.title}</p>
               <p className="">{exp.company}</p>
             </span>
-            <p className="w-[35%] text-center">{exp.date}</p>
+            <p className="w-[35%]">{exp.date}</p>
           </li>
         ))}
       </ul>
