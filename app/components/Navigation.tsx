@@ -21,9 +21,16 @@ const links = [
     const [previousHoveredIndex, setPreviousHoveredIndex] = useState<number | null>(null);
     const [linkDimensions, setLinkDimensions] = useState<Array<{x: number, width: number, height: number, top: number}>>([]);
     const linkRefs = useRef<(HTMLElement | null)[]>([]);
+    const liRefs = useRef<(HTMLLIElement | null)[]>([]);
+
+    const activeIndex = links.findIndex((link) => link.path === pathname);
 
     const updateLinkRef = (el: HTMLElement | null, index: number) => {
       linkRefs.current[index] = el;
+    };
+
+    const updateLiRef = (el: HTMLLIElement | null, index: number) => {
+      liRefs.current[index] = el;
     };
 
     const calculateDimensions = () => {
@@ -47,23 +54,27 @@ const links = [
 
     useLayoutEffect(() => {
       calculateDimensions();
+      
+      const handleResize = () => {
+        calculateDimensions();
+      };
+      
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     useLayoutEffect(() => {
       calculateDimensions();
-    }, [hoveredIndex]);
+    }, [hoveredIndex, pathname]);
 
     return (
       <nav className="border-b border-border flex justify-end">
         <ul className="flex flex-row relative">
             {links.map((link, index) => (
                 <li 
-                    key={link.path} 
-                    className={`px-1 pb-2.5 ${
-                        pathname === link.path 
-                            ? 'border-b-2 border-foreground' 
-                            : 'border-b-2 border-transparent'
-                    } transition-colors duration-200`}
+                    key={link.path}
+                    ref={(el) => updateLiRef(el, index)}
+                    className="px-1 pb-2.5"
                 >
                     <Link 
                         ref={(el) => updateLinkRef(el, index)}
@@ -106,6 +117,25 @@ const links = [
                     zIndex: 1,
                 }}
             />
+            
+            {activeIndex !== -1 && liRefs.current[activeIndex] && (
+                <motion.div
+                    className="absolute bottom-0 h-0.5 bg-foreground"
+                    initial={false}
+                    animate={{
+                        x: liRefs.current[activeIndex]?.getBoundingClientRect().left - (liRefs.current[activeIndex]?.closest('ul')?.getBoundingClientRect().left || 0) || 0,
+                        width: liRefs.current[activeIndex]?.getBoundingClientRect().width || 0,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 40
+                    }}
+                    style={{
+                        zIndex: 1,
+                    }}
+                />
+            )}
         </ul>
       </nav>
     )
