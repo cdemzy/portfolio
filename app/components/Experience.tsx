@@ -43,7 +43,7 @@ export default function Experience() {
       <h2>Experience</h2>
       <ul className="text-secondary-foreground flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
-          <li key={exp.company} className="flex justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400 cursor-pointer">
+          <li key={exp.company} className="flex justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
             <Image
               className="exp-img"
               src={exp.imgUrl}
