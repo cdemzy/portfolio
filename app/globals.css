@@ -37,4 +37,12 @@ body {
   h2, h1{
     @apply text-lg
   }
+
+  .exp-img{
+    @apply w-15 h-15 rounded-full 
+  }
+
+  .exp-title{
+    @apply text-foreground
+  }
 }
