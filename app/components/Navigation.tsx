@@ -20,8 +20,24 @@ const links = [
       <nav className="border-b border-border flex justify-end">
         <ul className="flex flex-row">
             {links.map((link) => (
-                <li key={link.path} className="px-2 pb-2.5">
-                    <Link href={link.path}>{link.title}</Link>
+                <li 
+                    key={link.path} 
+                    className={`px-2 pb-2.5 ${
+                        pathname === link.path 
+                            ? 'border-b-2 border-foreground' 
+                            : 'border-b-2 border-transparent'
+                    } transition-colors duration-200`}
+                >
+                    <Link 
+                        href={link.path}
+                        className={`${
+                            pathname === link.path 
+                                ? 'text-foreground' 
+                                : 'text-secondary hover:text-foreground'
+                        } transition-colors duration-200`}
+                    >
+                        {link.title}
+                    </Link>
                 </li>
             ))}
         </ul>
