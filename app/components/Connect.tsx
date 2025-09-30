@@ -23,7 +23,7 @@ export default function Connect() {
 				{socialLinks.map((link) => {
 					const IconComponent = link.icon;
 					return (
-						<li className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400 cursor-pointer" key={link.name}>
+						<li className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400 cursor-pointer hover:bg-dark-bg-secondary rounded-lg p-2" key={link.name}>
 							<a 
 								href={link.url} 
 								target="_blank" 
