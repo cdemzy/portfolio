@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import BlogPic1 from "@/public/projects/notes/Cover.png"
 import BlogPic2 from "@/public/projects/Cafe/cafe.png"
 
