@@ -11,7 +11,7 @@ import Flappy from '@/public/projects/flappybird/Mockup-Flappy1.png'
 import Forum from '@/public/projects/dalForum/cover.png'
 import Barter from '@/public/projects/barter/cover.png'
 
-export const projectsData = [
+const projectsData = [
     {
       title: "Flappy Bird",
       description:"An open source game project I started on January 2024 to learn unity for an upcoming course that I took on my second year in university, which involved...",
