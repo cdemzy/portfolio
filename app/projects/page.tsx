@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
 import NotesApp from '@/public/projects/notes/MB-M1.png'
 import Flappy from '@/public/projects/flappybird/Mockup-Flappy1.png'
-import Cafe from '@/public/projects/Cafe/cafe.png'
+// import Cafe from '@/public/projects/Cafe/cafe.png'
 import Forum from '@/public/projects/dalForum/cover.png'
 import Barter from '@/public/projects/barter/cover.png'
 
