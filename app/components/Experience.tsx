@@ -43,7 +43,7 @@ export default function Experience() {
       <h2>Experience</h2>
       <ul className="text-secondary-foreground flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
-          <li key={exp.company} className="flex justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
+          <li key={exp.company} className="flex xs:justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
             <Image
               className="exp-img"
               src={exp.imgUrl}
@@ -51,9 +51,10 @@ export default function Experience() {
             />
             <span className="w-[65%]">
               <p className="exp-title">{exp.title}</p>
-              <p className="">{exp.company}</p>
+              <p className="exp-company text-[13px] xs:text-base">{exp.company}</p>
+              <p className="xs:hidden text-[13px] xs:text-base">{exp.date}</p>
             </span>
-            <p className="w-[35%]">{exp.date}</p>
+            <p className="w-[35%] xs:block hidden">{exp.date}</p>
           </li>
         ))}
       </ul>
