@@ -73,9 +73,9 @@ export default function Projects() {
               }}
             >
               {/* <Link href={`/projects/${index}`} className="space-y-4"> */}
-                <div className="aspect-video overflow-hidden rounded-md bg-secondary">
+                <div className="aspect-video overflow-hidden rounded-md">
                   <div 
-                    className="image-container relative h-full w-full dark:bg-secondary-bg-dark overflow-hidden"
+                    className="image-container relative h-full w-full bg-secondary-bg dark:bg-secondary-bg-dark overflow-hidden"
                     onMouseMove={(e) => handleMouseMove(e, index)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -83,7 +83,7 @@ export default function Projects() {
                       src={project.imageUrl}
                       alt={project.title}
                       fill
-                      className="h-[10px] w-[10px] object-cover"
+                      className="h-[10px] w-[10px] object-cover mt-3"
                     />
                     <div
                       className={`absolute inset-0 pointer-events-none transition-opacity duration-300 ease-in-out ${
