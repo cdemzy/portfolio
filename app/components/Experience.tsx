@@ -26,7 +26,7 @@ const experience = [
     imgAlt: "Public Service Comission of Canada Logo",
     title: "Junior Programmer",
     company: "Public Service Comission of Canada",
-    date: "Jan 2024 - Apr 2024",
+    date: "Jan 2025 - Apr 2025",
   },
   {
     imgUrl: QuestLogo,
