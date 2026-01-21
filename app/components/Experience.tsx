@@ -33,7 +33,7 @@ const experience = [
     imgAlt: "Quest Logo",
     title: "Software Developer Intern",
     company: "Quest Software",
-    date: "Sep 2025 - Present",
+    date: "Sep 2025 - Dec 2025",
   },
 ] as const;
 
