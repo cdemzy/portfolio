@@ -31,7 +31,7 @@ const experience = [
   {
     imgUrl: QuestLogo,
     imgAlt: "Quest Logo",
-    title: "Software Developer Intern",
+    title: "Software Engineer Intern",
     company: "Quest Software",
     date: "Sep 2025 - Dec 2025",
   },
