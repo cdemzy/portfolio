@@ -7,9 +7,10 @@ import { motion } from "framer-motion";
 
 import NotesApp from '@/public/projects/notes/MB-M1.png'
 import Flappy from '@/public/projects/flappybird/Mockup-Flappy1.png'
-// import Cafe from '@/public/projects/Cafe/cafe.png'
 import Forum from '@/public/projects/dalForum/cover.png'
 import Barter from '@/public/projects/barter/cover.png'
+import Rigify from '@/public/projects/rigify/cover.png'
+import Sonetix from '@/public/projects/sonetix/cover.png'
 
 const projectsData = [
     {
@@ -35,6 +36,18 @@ const projectsData = [
       description:"An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions...",
       tags: ["PHP", "MySQL", "JavaScript", "Server-side Scripting"],
       imageUrl: Forum,
+    },
+    {
+      title: "Sonetix",
+      description:"A native iOS application delivering real-time Spotify analytics, using AI to derive advanced metrics, behavioral insights, and interactive dashboards from a user’s listening data.",
+      tags: ["Swift", "SwiftUI", "SpotifyAPI", "Next.js", "Firebase", "Gemini API", "iOS Development"],
+      imageUrl: Sonetix,
+    },
+    {
+      title: "Rigify",
+      description:"A full-stack AI-driven system for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations.",
+      tags: ["Next.js", "Gemini API", "Supabase", "Tailwindv4", "Full-stack AI-powered project"],
+      imageUrl: Rigify,
     },
     
   ] as const;
