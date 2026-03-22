@@ -16,7 +16,7 @@ export default function Education() {
 				<span className="">
 				<p className="degree text-foreground text-sm xs:text-base">Bachelor of Applied Computer Science</p>
 				<p className="university text-sm xs:text-base">Dalhousie University</p>
-				<p className="school-year w-[35%] text-sm xs:text-base">Third Year</p>
+				<p className="school-year w-[35%] text-sm xs:text-base">Fourth Year</p>
 				</span>
 			</div>
 		</section>
