@@ -12,7 +12,7 @@ const education = {
 export default function Education() {
 	return (
 		<section className="index-section" id="education">
-			<h2>Education</h2>
+			<h2 className='section-heading'>Education</h2>
 			<div className="flex gap-4 text-secondary-foreground">
 				<a href={education.link} target="_blank" rel="noreferrer">
 					<Image

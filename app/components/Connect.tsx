@@ -18,7 +18,7 @@ const socialLinks = [
 export default function Connect() {
 	return (
 		<section className="index-section" id="connect">
-			<h2>Connect</h2>
+			<h2 className='section-heading'>Connect</h2>
 			<ul className="w-min flex flex-col gap-6 group -ml-2">
 				{socialLinks.map((link) => {
 					return (

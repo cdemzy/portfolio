@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcfcfc;
+  --background: #fdfdfc;
   --foreground: #0a0a0a;
-  --secondary-foreground: #737373;
   --secondary-bg: #ebebeb;
 
-  --border: #262626;
+  --border: #e7e5e4;
+  /* --border: #262626; */
   --secondary-foreground-dark: #a3a3a3;
   --secondary-bg-dark: #212121;
 }
@@ -93,8 +93,8 @@ body {
     @apply flex flex-col gap-6
   }
 
-  h2, h1{
-    @apply text-lg
+  .section-heading{
+    @apply font-medium text-gray-950
   }
 
   .exp-img{
@@ -102,6 +102,10 @@ body {
   }
 
   .exp-title{
-    @apply text-foreground
+    @apply text-gray-950
+  }
+
+  .secondary-text{
+    @apply text-stone-500;
   }
 }

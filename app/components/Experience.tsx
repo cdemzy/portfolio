@@ -44,7 +44,7 @@ const experience = [
 export default function Experience() {
   return (
     <section className="index-section" id="experience">
-      <h2>Experience</h2>
+      <h2 className='section-heading'>Experience</h2>
       <ul className="text-secondary-foreground flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
           <li key={exp.company} className="flex xs:justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
