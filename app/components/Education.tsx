@@ -14,12 +14,15 @@ export default function Education() {
 		<section className="index-section" id="education">
 			<h2 className='section-heading'>Education</h2>
 			<div className="flex gap-4">
-				<a href={education.link} target="_blank" rel="noreferrer">
-					<Image
-					className="w-17 h-17 rounded-full xs:w-20 xs:h-20"
-					src={education.imgUrl}
-					alt={education.imgAlt}
-					/>
+				<a href={education.link} target="_blank" rel="noreferrer" className="shrink-0">
+					<div className="relative w-17 h-17 xs:w-20 xs:h-20 overflow-hidden rounded-full">
+						<Image
+						src={education.imgUrl}
+						alt={education.imgAlt}
+						fill
+						className="object-cover"
+						/>
+					</div>
 				</a>
 				<span className="">
 				<p className="degree text-sm xs:text-base">Bachelor of Applied Computer Science</p>
