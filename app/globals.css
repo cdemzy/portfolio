@@ -21,8 +21,8 @@
   --color-border: var(--border);
   --color-secondary-bg-dark: var(--secondary-bg-dark);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter-sans);
+  --font-mono: var(--font-inter-mono);
 
   /* Custom breakpoint for extra small screens */
   --breakpoint-xs: 608px;
@@ -31,7 +31,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #fafafa;
+    --foreground: #fdfdfc;
   }
 }
 
@@ -89,23 +89,21 @@ body {
 }
 
 @layer components{
-  .index-section{
-    @apply flex flex-col gap-6
-  }
 
-  .section-heading{
-    @apply font-medium text-gray-950
-  }
-
-  .exp-img{
-    @apply w-15 h-15 rounded-full 
-  }
-
-  .exp-title{
+  .primary-text{
     @apply text-gray-950
   }
 
   .secondary-text{
     @apply text-stone-500;
   }
+
+  .index-section{
+    @apply flex flex-col gap-6
+  }
+
+  .section-heading{
+    @apply font-medium
+  }
+
 }
