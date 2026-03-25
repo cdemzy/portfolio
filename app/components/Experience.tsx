@@ -10,6 +10,7 @@ const experience = [
   {
     imgUrl: EmeraLogo,
     imgAlt: "Emera Idea Hub Logo",
+    link: 'https://dalideahub.ca/',
     title: "Junior Student Developer",
     company: "Dalhousie Emera ideaHUB",
     date: "Jan 2024 - Apr 2024",
@@ -17,6 +18,7 @@ const experience = [
   {
     imgUrl: CStudioLogo,
     imgAlt: "Charles Studio Logo",
+    link: 'https://cdemzy.dev/',
     title: "Software Developer",
     company: "Charles Studio",
     date: "May 2024 - Aug 2024",
@@ -24,6 +26,7 @@ const experience = [
   {
     imgUrl: PSCLogo,
     imgAlt: "Public Service Comission of Canada Logo",
+    link: 'https://www.canada.ca/en/public-service-commission.html',
     title: "Junior Programmer",
     company: "Public Service Comission of Canada",
     date: "Jan 2025 - Apr 2025",
@@ -31,6 +34,7 @@ const experience = [
   {
     imgUrl: QuestLogo,
     imgAlt: "Quest Logo",
+    link: 'https://www.quest.com/',
     title: "Software Engineer Intern",
     company: "Quest Software",
     date: "Sep 2025 - Dec 2025",
@@ -44,11 +48,16 @@ export default function Experience() {
       <ul className="text-secondary-foreground flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
           <li key={exp.company} className="flex xs:justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
-            <Image
-              className="exp-img"
-              src={exp.imgUrl}
-              alt={exp.imgAlt}
-            />
+            <a href={exp.link} target="_blank" rel="noreferrer" className="shrink-0">
+            <div className="relative w-15 h-15 overflow-hidden rounded-full">
+              <Image
+                src={exp.imgUrl}
+                alt={exp.imgAlt}
+                fill
+                className="exp-img"
+              />
+            </div>
+          </a>
             <span className="w-[65%]">
               <p className="exp-title">{exp.title}</p>
               <p className="exp-company text-[13px] xs:text-base">{exp.company}</p>
