@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/app/components/ThemeProvider"
 
 import Navigation from "./components/Navigation";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const interSans = Inter({
+  variable: "--font-inter-sans",
   subsets: ["latin"],
 });
 
@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${interSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
-        className="antialiased scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto max-w-[652px]"
+        className="antialiased primary-text scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto max-w-[652px]"
       >
         <ThemeProvider
             attribute="class"

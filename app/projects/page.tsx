@@ -39,13 +39,13 @@ const projectsData = [
     },
     {
       title: "Sonetix",
-      description:"A native iOS application delivering real-time Spotify analytics, using AI to derive advanced metrics, behavioral insights, and interactive dashboards from a user’s listening data.",
+      description:"A native iOS application delivering real-time Spotify analytics, using AI to derive advanced metrics, behavioral insights, and interactive dashboards from a user’s listening data...",
       tags: ["Swift", "SwiftUI", "SpotifyAPI", "Next.js", "Firebase", "Gemini API", "iOS Development"],
       imageUrl: Sonetix,
     },
     {
       title: "Rigify",
-      description:"A full-stack AI-driven system for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations.",
+      description:"A full-stack AI-driven system for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations...",
       tags: ["Next.js", "Gemini API", "Supabase", "Tailwindv4", "Full-stack AI-powered project"],
       imageUrl: Rigify,
     },
@@ -71,7 +71,7 @@ export default function Projects() {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1>Projects</h1>
+      <h1 className='section-heading'>Projects</h1>
         <ul className="grid grid-cols-1 gap-9 snap-x snap-mandatory">
           {projectsData.slice().reverse().map((project, index) => (
             <motion.li 
@@ -110,7 +110,7 @@ export default function Projects() {
                 </div>
                 <div className="pt-3">
                   <p className="font-medium leading-tight">{project.title}</p>
-                  <p className="dark:text-secondary-foreground">{project.description}</p>
+                  <p className="secondary-text dark:text-secondary-foreground">{project.description}</p>
                 </div>
               {/* </Link> */}
             </motion.li>
