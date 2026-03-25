@@ -73,7 +73,7 @@ const links = [
     }, [hoveredIndex, pathname]);
 
     return (
-      <nav className="border-b border-border flex justify-end">
+      <nav className="border-b border-border dark:border-neutral-700 flex justify-end">
         <ul className="flex flex-row relative">
             {links.map((link, index) => (
                 <li 

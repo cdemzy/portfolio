@@ -67,7 +67,7 @@ export default function Experience() {
               <span className="w-[65%]">
                 <p className="primary-text">{exp.title}</p>
                 <p className="text-sm xs:text-base">{exp.company}</p>
-                <p className="text-sm xs:text-base">{exp.date}</p>
+                <p className="hidden xs:text-base">{exp.date}</p>
               </span>
               <p className="w-[35%] xs:block hidden">{exp.date}</p>
             </div>

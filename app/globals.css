@@ -30,7 +30,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0c0a09;
     --foreground: #fdfdfc;
   }
 }
@@ -91,19 +91,19 @@ body {
 @layer components{
 
   .primary-text{
-    @apply text-gray-950
+    @apply text-gray-950 dark:text-stone-50;
   }
 
   .secondary-text{
-    @apply text-stone-500;
+    @apply text-stone-500 dark:text-stone-400;
   }
 
   .secondary-bg{
-    @apply bg-neutral-100;
+    @apply bg-neutral-100 dark:bg-stone-800;
   }
 
   .pill-hover{
-    @apply hover:bg-neutral-100;
+    @apply hover:bg-neutral-100 dark:hover:bg-stone-800;
   }
 
   .index-section{
