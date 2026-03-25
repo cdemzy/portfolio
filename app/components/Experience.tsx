@@ -48,27 +48,29 @@ export default function Experience() {
       <ul className="secondary-text flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
           <li key={exp.company} className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
-            <a
-              href={exp.link}
-              target="_blank"
-              rel="noreferrer"
-              className="flex xs:justify-between items-center gap-4 rounded-lg p-2 -m-2 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark duration-400"
-            >
-              <div className="relative w-15 h-15 overflow-hidden rounded-full shrink-0">
-                <Image
-                  src={exp.imgUrl}
-                  alt={exp.imgAlt}
-                  fill
-                  className="rounded-full"
-                />
-              </div>
+            <div className="pill-hover flex xs:justify-between items-center gap-4 rounded-lg p-2 -m-2 duration-400">
+              <a
+                href={exp.link}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0"
+              >
+                <div className="relative w-15 h-15 overflow-hidden rounded-full">
+                  <Image
+                    src={exp.imgUrl}
+                    alt={exp.imgAlt}
+                    fill
+                    className="rounded-full"
+                  />
+                </div>
+              </a>
               <span className="w-[65%]">
                 <p className="primary-text">{exp.title}</p>
-                <p className="exp-company text-[13px] xs:text-base">{exp.company}</p>
-                <p className="xs:hidden text-[13px] xs:text-base">{exp.date}</p>
+                <p className="text-sm xs:text-base">{exp.company}</p>
+                <p className="text-sm xs:text-base">{exp.date}</p>
               </span>
               <p className="w-[35%] xs:block hidden">{exp.date}</p>
-            </a>
+            </div>
           </li>
         ))}
       </ul>
