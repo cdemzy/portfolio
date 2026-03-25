@@ -45,7 +45,7 @@ const projectsData = [
     },
     {
       title: "Rigify",
-      description:"A full-stack AI-driven system for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations...",
+      description:"A full-stack AI-driven platform for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations...",
       tags: ["Next.js", "Gemini API", "Supabase", "Tailwindv4", "Full-stack AI-powered project"],
       imageUrl: Rigify,
     },
