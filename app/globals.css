@@ -98,6 +98,14 @@ body {
     @apply text-stone-500;
   }
 
+  .secondary-bg{
+    @apply bg-neutral-100;
+  }
+
+  .pill-hover{
+    @apply hover:bg-neutral-100;
+  }
+
   .index-section{
     @apply flex flex-col gap-6
   }

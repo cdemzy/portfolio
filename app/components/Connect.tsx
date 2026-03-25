@@ -27,7 +27,7 @@ export default function Connect() {
 								href={link.url} 
 								target="_blank" 
 								rel="noopener noreferrer"
-								className="social-link inline-flex gap-1 cursor-pointer hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark rounded-lg p-2 underline underline-offset-4 dark:decoration-gray-700 hover:decoration-foreground duration-400"
+								className="social-link pill-hover inline-flex gap-1 cursor-pointer rounded-lg p-2 underline underline-offset-4 dark:decoration-gray-700 hover:decoration-foreground duration-400"
 							>
 								{link.name}
 							</a>

@@ -45,25 +45,32 @@ export default function Experience() {
   return (
     <section className="index-section" id="experience">
       <h2 className='section-heading'>Experience</h2>
-      <ul className="secondary-text flex flex-col gap-6 group">
+      <ul className="secondary-text flex flex-col gap-5 group">
         {experience.slice().reverse().map((exp) => (
-          <li key={exp.company} className="flex xs:justify-between items-center gap-4 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
-            <a href={exp.link} target="_blank" rel="noreferrer" className="shrink-0">
-            <div className="relative w-15 h-15 overflow-hidden rounded-full">
-              <Image
-                src={exp.imgUrl}
-                alt={exp.imgAlt}
-                fill
-                className="w-15 h-15 rounded-full"
-              />
+          <li key={exp.company} className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
+            <div className="pill-hover flex xs:justify-between items-center gap-4 rounded-lg p-2 -m-2 duration-400">
+              <a
+                href={exp.link}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0"
+              >
+                <div className="relative w-15 h-15 overflow-hidden rounded-full">
+                  <Image
+                    src={exp.imgUrl}
+                    alt={exp.imgAlt}
+                    fill
+                    className="rounded-full"
+                  />
+                </div>
+              </a>
+              <span className="w-[65%]">
+                <p className="primary-text">{exp.title}</p>
+                <p className="exp-company text-[13px] xs:text-base">{exp.company}</p>
+                <p className="xs:hidden text-[13px] xs:text-base">{exp.date}</p>
+              </span>
+              <p className="w-[35%] xs:block hidden">{exp.date}</p>
             </div>
-          </a>
-            <span className="w-[65%]">
-              <p className="primary-text">{exp.title}</p>
-              <p className="exp-company text-[13px] xs:text-base">{exp.company}</p>
-              <p className="xs:hidden text-[13px] xs:text-base">{exp.date}</p>
-            </span>
-            <p className="w-[35%] xs:block hidden">{exp.date}</p>
           </li>
         ))}
       </ul>
