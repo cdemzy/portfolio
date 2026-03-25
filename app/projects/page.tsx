@@ -71,7 +71,7 @@ export default function Projects() {
 
   return (
     <main className="flex flex-col gap-12">
-      <h1>Projects</h1>
+      <h1 className='section-heading'>Projects</h1>
         <ul className="grid grid-cols-1 gap-9 snap-x snap-mandatory">
           {projectsData.slice().reverse().map((project, index) => (
             <motion.li 
