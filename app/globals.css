@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcfcfc;
+  --background: #fdfdfc;
   --foreground: #0a0a0a;
-  --secondary-foreground: #737373;
   --secondary-bg: #ebebeb;
 
-  --border: #262626;
+  --border: #e7e5e4;
+  /* --border: #262626; */
   --secondary-foreground-dark: #a3a3a3;
   --secondary-bg-dark: #212121;
 }
@@ -21,8 +21,8 @@
   --color-border: var(--border);
   --color-secondary-bg-dark: var(--secondary-bg-dark);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter-sans);
+  --font-mono: var(--font-inter-mono);
 
   /* Custom breakpoint for extra small screens */
   --breakpoint-xs: 608px;
@@ -30,8 +30,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #fafafa;
+    --background: #0c0a09;
+    --foreground: #fdfdfc;
   }
 }
 
@@ -89,19 +89,29 @@ body {
 }
 
 @layer components{
+
+  .primary-text{
+    @apply text-gray-950 dark:text-stone-50;
+  }
+
+  .secondary-text{
+    @apply text-stone-500 dark:text-stone-400;
+  }
+
+  .secondary-bg{
+    @apply bg-neutral-100 dark:bg-stone-800;
+  }
+
+  .pill-hover{
+    @apply hover:bg-neutral-100 dark:hover:bg-stone-800;
+  }
+
   .index-section{
     @apply flex flex-col gap-6
   }
 
-  h2, h1{
-    @apply text-lg
+  .section-heading{
+    @apply font-medium
   }
 
-  .exp-img{
-    @apply w-15 h-15 rounded-full 
-  }
-
-  .exp-title{
-    @apply text-foreground
-  }
 }

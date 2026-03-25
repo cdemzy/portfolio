@@ -24,6 +24,11 @@ const links = [
     const liRefs = useRef<(HTMLLIElement | null)[]>([]);
 
     const activeIndex = links.findIndex((link) => link.path === pathname);
+    const shouldAnimateHover =
+      hoveredIndex !== null &&
+      previousHoveredIndex !== null &&
+      hoveredIndex !== previousHoveredIndex;
+    const currentHoverIndex = hoveredIndex ?? previousHoveredIndex;
 
     const updateLinkRef = (el: HTMLElement | null, index: number) => {
       linkRefs.current[index] = el;
@@ -68,50 +73,57 @@ const links = [
     }, [hoveredIndex, pathname]);
 
     return (
-      <nav className="border-b border-border flex justify-end">
+      <nav className="border-b border-border dark:border-neutral-700 flex justify-end">
         <ul className="flex flex-row relative">
             {links.map((link, index) => (
                 <li 
                     key={link.path}
                     ref={(el) => updateLiRef(el, index)}
-                    className="px-1 pb-2.5"
+                    className="pb-2.5"
                 >
                     <Link 
                         ref={(el) => updateLinkRef(el, index)}
                         href={link.path}
-                        className={`px-2 py-1.25 rounded-lg relative z-10 block ${
-                            pathname === link.path 
-                                ? 'text-foreground' 
-                                : 'text-secondary-foreground hover:text-foreground'
-                        } transition-colors duration-200`}
+                        className="block px-1 relative z-10"
                         onMouseEnter={() => {
-                          setPreviousHoveredIndex(hoveredIndex);
+                          setPreviousHoveredIndex(hoveredIndex ?? previousHoveredIndex);
                           setHoveredIndex(index);
                         }}
                         onMouseLeave={() => {
                           setPreviousHoveredIndex(hoveredIndex);
                           setHoveredIndex(null);
                         }}
+                        style={{ WebkitTapHighlightColor: 'transparent' }}
                     >
-                        {link.title}
+                        <div
+                            className={`px-2 py-1.25 rounded-lg transition-colors duration-200 ${
+                                pathname === link.path 
+                                    ? 'text-foreground' 
+                                    : 'text-secondary-foreground hover:text-foreground'
+                            }`}
+                        >
+                            {link.title}
+                        </div>
                     </Link>
                 </li>
             ))}
             
             <motion.div
-                className="absolute bg-secondary-bg dark:bg-secondary-bg-dark rounded-lg"
-                initial={{ opacity: 0 }}
+                className="secondary-bg absolute hidden rounded-lg md:block"
+                initial={false}
                 animate={{
                     opacity: hoveredIndex !== null ? 1 : 0,
-                    x: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].x : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].x : 0),
-                    width: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].width : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].width : 0),
-                    height: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].height : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].height : 0),
-                    top: hoveredIndex !== null && linkDimensions[hoveredIndex] ? linkDimensions[hoveredIndex].top : (previousHoveredIndex !== null && linkDimensions[previousHoveredIndex] ? linkDimensions[previousHoveredIndex].top : 0),
+                    x: currentHoverIndex !== null && linkDimensions[currentHoverIndex] ? linkDimensions[currentHoverIndex].x : 0,
+                    width: currentHoverIndex !== null && linkDimensions[currentHoverIndex] ? linkDimensions[currentHoverIndex].width : 0,
+                    height: currentHoverIndex !== null && linkDimensions[currentHoverIndex] ? linkDimensions[currentHoverIndex].height : 0,
+                    top: currentHoverIndex !== null && linkDimensions[currentHoverIndex] ? linkDimensions[currentHoverIndex].top : 0,
                 }}
                 transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30
+                    opacity: { duration: 0 },
+                    x: shouldAnimateHover ? { type: "spring", stiffness: 300, damping: 30 } : { duration: 0 },
+                    width: { duration: 0 },
+                    height: { duration: 0 },
+                    top: { duration: 0 },
                 }}
                 style={{
                     zIndex: 1,

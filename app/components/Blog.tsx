@@ -22,7 +22,7 @@ const blogPosts = [
 export default function Blog() {
   return (
     <section className="index-section" id="blog">
-        <h2>Blog</h2>
+        <h2 className='section-heading'>Blog</h2>
         <div className="relative overflow-hidden rounded-lg">
 
           {/* TODO: Delete this blur effect after blog posts are added */}
