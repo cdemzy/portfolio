@@ -4,7 +4,7 @@
 
 Welcome to my portfolio website — a simple, refreshed space to share my projects and experience.
 
-#### Version: 2.0
+#### Version: 2.0.1
 
 ## Stack/Features
 - [Next.js v15.5.3](https://nextjs.org) 
