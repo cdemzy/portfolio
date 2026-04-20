@@ -39,8 +39,8 @@ const projectsData = [
     },
     {
       title: "Sonetix",
-      description:"A native iOS application delivering real-time Spotify analytics, using AI to derive advanced metrics, behavioral insights, and interactive dashboards from a user’s listening data...",
-      tags: ["Swift", "SwiftUI", "SpotifyAPI", "Next.js", "Firebase", "Gemini API", "iOS Development"],
+      description:"A native iOS application delivering real-time Spotify analytics, with advanced metrics, and interactive dashboards built from listening data...",
+      tags: ["Swift", "SwiftUI", "SpotifyAPI", "Python", "FastAPI", "Redis", "iOS Development"],
       imageUrl: Sonetix,
     },
     {
