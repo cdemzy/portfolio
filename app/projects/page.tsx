@@ -11,6 +11,7 @@ import Forum from '@/public/projects/dalForum/cover.png'
 import Barter from '@/public/projects/barter/cover.png'
 import Rigify from '@/public/projects/rigify/cover.png'
 import Sonetix from '@/public/projects/sonetix/cover.png'
+import Karaoke from '@/public/projects/karaoke/cover.png'
 
 const projectsData = [
     {
@@ -48,6 +49,12 @@ const projectsData = [
       description:"A full-stack AI-driven platform for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations...",
       tags: ["Next.js", "Gemini API", "Supabase", "Tailwindv4", "Full-stack AI-powered project"],
       imageUrl: Rigify,
+    },
+    {
+      title: "Karaoke",
+      description:"An open-source web karaoke player for groups and gatherings, with a real-time collaborative queue and seamless session sharing across devices...",
+      tags: ["Next.js", "Gemini API", "Supabase", "Tailwindv4", "Full-stack AI-powered project"],
+      imageUrl: Karaoke,
     },
     
   ] as const;
