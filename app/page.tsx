@@ -2,10 +2,12 @@
 import { motion } from 'framer-motion'
 import Intro from './components/Intro'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
 
 const sections = [
 	{ Component: Intro, key: 'intro' },
 	{ Component: Experience, key: 'experience' },
+	{ Component: Projects, key: 'projects' },
 ]
 
 export default function Home() {
