@@ -13,28 +13,10 @@ import Karaoke from '@/public/projects/karaoke/cover.png'
 
 const projectsData = [
 	{
-		title: 'Notes',
-		description: 'A full-stack notes app with secure authentication, rich note editing, and organized personal workspaces.',
-		tags: ['React', 'Tailwind', 'MongoDB', 'Express.js', 'RESTful API', 'Full-Stack Development'],
-		imageUrl: NotesApp,
-	},
-	{
-		title: 'Online Barter Trader',
-		description: 'A mobile barter platform that lets students list, discover, and exchange items with one another.',
-		tags: ['Android Studio', 'Java', 'Firebase', 'Mobile Development'],
-		imageUrl: Barter,
-	},
-	{
 		title: 'Dalhousie Forum',
 		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
 		tags: ['PHP', 'MySQL', 'JavaScript', 'Server-side Scripting'],
 		imageUrl: Forum,
-	},
-	{
-		title: 'Sonetix',
-		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
-		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
-		imageUrl: Sonetix,
 	},
 	{
 		title: 'Rigify',
@@ -45,6 +27,24 @@ const projectsData = [
 	{
 		title: 'Karaoke',
 		description: 'An open-source web karaoke player with a collaborative queue and simple session sharing for groups.',
+		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
+		imageUrl: Karaoke,
+	},
+	{
+		title: 'Sonetix',
+		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
+		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
+		imageUrl: Sonetix,
+	},
+	{
+		title: 'InfiniteRadar',
+		description: 'A real-time map for tracking live Infinite Flight aircraft and flight data.',
+		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
+		imageUrl: Sonetix,
+	},
+	{
+		title: 'DevBoard',
+		description: 'A collaborative developer workspace for managing projects, sprints, tasks, and AI automation.',
 		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
 		imageUrl: Karaoke,
 	},
