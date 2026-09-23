@@ -2,6 +2,7 @@
 
 import CameraTooltip from './intro/CameraTooltip'
 import PhotoHover from './intro/PhotoHover'
+import { motion } from 'framer-motion'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'
 
 export default function Intro() {
@@ -15,13 +16,18 @@ export default function Intro() {
 					When I&apos;m not coding, I&apos;m probably playing tennis, at the gym, or out taking <PhotoHover /> with my <CameraTooltip /> :]
 				</p>
 			</article>
-			<div className="mt-6 flex items-center gap-3">
+			<motion.div
+				className='mt-6 flex items-center gap-3'
+				initial={{ opacity: 0, y: 8 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.35, delay: 0.6, ease: 'easeOut' }}
+			>
 				<a
 					href='https://github.com/cdemzy'
 					target='_blank'
 					rel='noopener noreferrer'
 					aria-label='Visit Charles Dela Cruz on GitHub'
-					className='secondary-bg pill-hover inline-flex size-10 items-center justify-center rounded-lg transition-colors'
+					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200'
 				>
 					<IoLogoGithub aria-hidden='true' size={20} />
 				</a>
@@ -30,11 +36,11 @@ export default function Intro() {
 					target='_blank'
 					rel='noopener noreferrer'
 					aria-label='Visit Charles Dela Cruz on LinkedIn'
-					className='secondary-bg pill-hover inline-flex size-10 items-center justify-center rounded-lg transition-colors'
+					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200'
 				>
 					<IoLogoLinkedin aria-hidden='true' size={20} />
 				</a>
-			</div>
+			</motion.div>
 		</section>
 	)
 }
