@@ -14,37 +14,37 @@ import Karaoke from '@/public/projects/karaoke/cover.png'
 const projectsData = [
 	{
 		title: 'Notes',
-		description: 'An open source project that I started on April 2024 to learn the aspects of full-stack development...',
+		description: 'A full-stack notes app with secure authentication, rich note editing, and organized personal workspaces.',
 		tags: ['React', 'Tailwind', 'MongoDB', 'Express.js', 'RESTful API', 'Full-Stack Development'],
 		imageUrl: NotesApp,
 	},
 	{
 		title: 'Online Barter Trader',
-		description: 'A semester-long academic mobile application project focused on enabling users to exchange items through a user-centric barter system...',
+		description: 'A mobile barter platform that lets students list, discover, and exchange items with one another.',
 		tags: ['Android Studio', 'Java', 'Firebase', 'Mobile Development'],
 		imageUrl: Barter,
 	},
 	{
 		title: 'Dalhousie Forum',
-		description: 'An academic web application project that I developed, where users can post on a forum and message other users to engage in discussions...',
+		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
 		tags: ['PHP', 'MySQL', 'JavaScript', 'Server-side Scripting'],
 		imageUrl: Forum,
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS application delivering real-time Spotify analytics, with advanced metrics, and interactive dashboards built from listening data...',
+		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
 		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'Rigify',
-		description: 'A full-stack AI-driven platform for PC build optimization, integrating the Gemini API to generate performance metrics, detect bottlenecks, project per-game FPS, and deliver intelligent hardware upgrade recommendations...',
+		description: 'An AI-powered PC build planner that identifies bottlenecks and estimates per-game performance.',
 		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
 		imageUrl: Rigify,
 	},
 	{
 		title: 'Karaoke',
-		description: 'An open-source web karaoke player for groups and gatherings, with a real-time collaborative queue and seamless session sharing across devices...',
+		description: 'An open-source web karaoke player with a collaborative queue and simple session sharing for groups.',
 		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
 		imageUrl: Karaoke,
 	},
