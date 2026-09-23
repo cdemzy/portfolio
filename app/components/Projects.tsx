@@ -38,13 +38,13 @@ const projectsData = [
 	},
 	{
 		title: 'InfiniteRadar',
-		description: 'A real-time map for tracking live Infinite Flight aircraft and flight data.',
+		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
 		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'DevBoard',
-		description: 'A collaborative developer workspace for managing projects, sprints, tasks, and AI automation.',
+		description: 'A developer workspace for personal or team projects, sprints, tasks, and AI-powered workflows.',
 		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
 		imageUrl: Karaoke,
 	},

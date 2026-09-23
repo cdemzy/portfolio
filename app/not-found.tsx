@@ -22,12 +22,6 @@ export default function NotFound() {
 				>
 					Back to index
 				</Link>
-				<Link
-					href='/projects'
-					className='border border-border pill-hover rounded-lg px-4 py-2 transition-colors dark:border-neutral-700'
-				>
-					View projects
-				</Link>
 			</div>
 		</main>
 	)

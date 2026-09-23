@@ -5,15 +5,11 @@ import { motion } from "framer-motion";
 import { useState, useLayoutEffect, useRef } from "react";
 
 const links = [
-    {
-      path: "/",
-      title: "Index",
-    },
-    {
-      path: "/projects",
-      title: "Projects",
-    },
-] as const;
+  {
+    path: '/',
+    title: 'Index',
+  },
+] as const
 
   export default function Navigation() {
     const pathname = `/${usePathname().split("/")[1]}`;
