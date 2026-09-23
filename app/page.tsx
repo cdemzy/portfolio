@@ -1,18 +1,12 @@
-"use client";
-import { motion } from "framer-motion";
-import Intro from "./components/Intro"
-import Experience from "./components/Experience";
-import Connect from "./components/Connect";
-import Education from "./components/Education";
-import Blog from "./components/Blog";
+'use client'
+import { motion } from 'framer-motion'
+import Intro from './components/Intro'
+import Experience from './components/Experience'
 
 const sections = [
-  { Component: Intro, key: 'intro' },
-  // { Component: Blog, key: 'blog' },
-  { Component: Experience, key: 'experience' },
-  // { Component: Education, key: 'education' },
-  // { Component: Connect, key: 'connect' },
-];
+	{ Component: Intro, key: 'intro' },
+	{ Component: Experience, key: 'experience' },
+]
 
 export default function Home() {
   return (
