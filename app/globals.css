@@ -22,7 +22,7 @@
   --color-secondary-bg-dark: var(--secondary-bg-dark);
 
   --font-sans: var(--font-inter-sans);
-  --font-mono: var(--font-inter-mono);
+  --font-mono: var(--font-geist-mono);
 
   /* Custom breakpoint for extra small screens */
   --breakpoint-xs: 608px;
