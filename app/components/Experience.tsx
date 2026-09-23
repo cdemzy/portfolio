@@ -53,9 +53,9 @@ export default function Experience() {
                 href={exp.link}
                 target="_blank"
                 rel="noreferrer"
-                className="shrink-0"
+                className="shrink-0 w-15 h-15 flex items-center justify-center border dark:bg-[#262626] dark:border-neutral-700 rounded-full"
               >
-                <div className="relative w-15 h-15 overflow-hidden rounded-full">
+                <div className="relative w-10 h-10 overflow-hidden">
                   <Image
                     src={exp.imgUrl}
                     alt={exp.imgAlt}
