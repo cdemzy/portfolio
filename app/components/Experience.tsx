@@ -60,6 +60,7 @@ export default function Experience() {
                     src={exp.imgUrl}
                     alt={exp.imgAlt}
                     fill
+                    sizes="40px"
                     className="rounded-full"
                   />
                 </div>
