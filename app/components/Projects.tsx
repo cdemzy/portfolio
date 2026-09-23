@@ -74,7 +74,7 @@ export default function Projects() {
 				{projectsData.slice().reverse().map((project, index) => (
 					<motion.li
 						key={project.title}
-						className="relative min-h-72 overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
+						className="relative overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
