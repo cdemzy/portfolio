@@ -19,7 +19,7 @@ const experience = [
     imgUrl: CStudioLogo,
     imgAlt: "Charles Studio Logo",
     link: 'https://cdemzy.dev/',
-    title: "Software Developer",
+    title: "Web Developer",
     company: "Charles Studio",
     date: "May 2024 - Aug 2024",
   },
