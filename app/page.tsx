@@ -10,8 +10,8 @@ const sections = [
   { Component: Intro, key: 'intro' },
   // { Component: Blog, key: 'blog' },
   { Component: Experience, key: 'experience' },
-  { Component: Education, key: 'education' },
-  { Component: Connect, key: 'connect' },
+  // { Component: Education, key: 'education' },
+  // { Component: Connect, key: 'connect' },
 ];
 
 export default function Home() {
