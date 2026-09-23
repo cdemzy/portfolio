@@ -39,6 +39,9 @@ export default function RootLayout({
           >
         <Navigation/>
         {children}
+        <footer className="border-t border-border px-2 pt-4 font-mono text-sm text-stone-500 dark:border-neutral-700 dark:text-stone-400">
+          © 2026 Charles Dela Cruz · All rights reserved
+        </footer>
         <Analytics />
         </ThemeProvider>
       </body>

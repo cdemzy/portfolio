@@ -17,7 +17,7 @@ export default function Intro() {
 				</p>
 			</article>
 			<motion.div
-				className='mt-6 flex items-center gap-3'
+				className='flex items-center gap-2'
 				initial={{ opacity: 0, y: 8 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.35, delay: 0.6, ease: 'easeOut' }}
