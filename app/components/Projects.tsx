@@ -88,8 +88,8 @@ export default function Projects() {
 								</div>
 								<h3 className="font-medium leading-tight">{project.title}</h3>
 							</div>
-							<div className="mt-6">
-								<p className="mt-3 text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
+							<div className="mt-3">
+								<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
 							</div>
 						</div>
 						<div
