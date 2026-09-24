@@ -12,9 +12,11 @@ import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
 import Forum from '@/public/projects/dalForum/cover.png'
-import Rigify from '@/public/projects/rigify/cover.png'
-import Sonetix from '@/public/projects/sonetix/cover.png'
-import Karaoke from '@/public/projects/karaoke/cover.png'
+import Rigify from '@/public/projects/rigify/logo.png'
+import Sonetix from '@/public/projects/sonetix/logo.png'
+import Karaoke from '@/public/projects/karaoke/logo.png'
+import InfiniteRadar from '@/public/projects/infiniteRadar/logo.png'
+import DevBoard from '@/public/projects/devboard/logo.png'
 
 const projectsData = [
 	{
@@ -50,14 +52,14 @@ const projectsData = [
 		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
 		stack: ['SwiftUI', 'Next.js', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
 		platform: ['iOS', 'Web'],
-		imageUrl: Sonetix,
+		imageUrl: InfiniteRadar,
 	},
 	{
 		title: 'DevBoard',
 		description: 'A developer workspace for personal or team projects, sprints, tasks, and AI-powered workflows.',
 		stack: ['SwiftUI','FastAPI', 'Next.js', 'Gemini API', 'Supabase',],
 		platform: ['MacOS', 'iOS', 'Web'],
-		imageUrl: Karaoke,
+		imageUrl: DevBoard,
 	},
 ] as const
 
@@ -109,30 +111,19 @@ export default function Projects() {
 	}
 
 	function handleProjectToggle() {
-		sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 		setIsExpanded((currentValue) => !currentValue)
+	}
+
+	function handleProjectsExpanded() {
+		sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 	}
 
 	return (
 		<section ref={sectionRef} className="index-section" id="projects">
 			<h2 className="section-heading">Projects</h2>
-			<ul className="group hidden grid-cols-1 gap-4 md:grid md:grid-cols-2">
-				{displayedProjects.map((project, index) => (
-					<li key={project.title}>
-						<ProjectCard
-							index={index}
-							mousePosition={mousePosition}
-							onMouseLeave={handleMouseLeave}
-							onMouseMove={(event) => handleMouseMove(event, index)}
-							project={project}
-							hoveredIndex={hoveredIndex}
-						/>
-					</li>
-				))}
-			</ul>
-			<ul className="group flex flex-col md:hidden" id="project-list">
+			<ul className="group grid grid-cols-1 gap-4" id="project-list">
 				{displayedProjects.slice(0, 3).map((project, index) => (
-					<li key={project.title} className={index < 2 ? 'mb-4' : undefined}>
+					<li key={project.title}>
 						<ProjectCard
 							index={index}
 							mousePosition={mousePosition}
@@ -149,10 +140,15 @@ export default function Projects() {
 							animate={{ clipPath: 'inset(0% 0 0 0)', height: 'auto', opacity: 1, paddingTop: 16 }}
 							exit={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
 							initial={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
+							onAnimationComplete={() => {
+								if (isExpanded) {
+									handleProjectsExpanded()
+								}
+							}}
 							transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-							className="overflow-hidden"
+							className="col-span-full overflow-hidden"
 						>
-							<ul className="flex flex-col gap-4">
+							<ul className="grid grid-cols-1 gap-4">
 								{displayedProjects.slice(3).map((project, index) => (
 									<li key={project.title}>
 										<ProjectCard
@@ -174,7 +170,7 @@ export default function Projects() {
 				aria-label={isExpanded ? 'Collapse projects' : 'Expand projects'}
 				aria-controls="project-list"
 				aria-expanded={isExpanded}
-				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full md:hidden"
+				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full"
 				onClick={handleProjectToggle}
 				type="button"
 			>
@@ -196,15 +192,15 @@ interface ProjectCardProps {
 function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouseMove, project }: ProjectCardProps) {
 	return (
 		<div
-			className="relative h-full overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
+			className="relative h-full overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100! hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
 			onMouseMove={onMouseMove}
 			onMouseLeave={onMouseLeave}
 		>
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
-					<div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-black/10 bg-background shadow-sm dark:border-white/10">
-						<Image src={project.imageUrl} alt="" fill sizes="56px" className="object-cover" />
-					</div>
+					
+						<Image src={project.imageUrl} alt="" className="size-15 object-cover" />
+					
 					<div className="flex flex-wrap items-center gap-2">
 						<h3 className="font-medium leading-tight">{project.title}</h3>
 						<span aria-hidden="true" className="secondary-text dark:text-secondary-foreground">·</span>
