@@ -1,6 +1,6 @@
 'use client'
 
-import CameraTooltip from './intro/CameraTooltip'
+import CameraTooltip from './intro/CameraHover'
 import PhotoHover from './intro/PhotoHover'
 import { motion } from 'framer-motion'
 import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io'

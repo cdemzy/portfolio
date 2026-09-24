@@ -48,7 +48,7 @@ export default function Experience() {
       <ul className="secondary-text flex flex-col gap-6 group">
         {experience.slice().reverse().map((exp) => (
           <li key={exp.company} className="group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-400">
-            <div className="pill-hover flex xs:justify-between items-center gap-4 rounded-lg p-2 -m-2 duration-400">
+            <div className="pill-hover flex items-center gap-4 rounded-lg p-2 -m-2 duration-400 md:justify-between">
               <a
                 href={exp.link}
                 target="_blank"
@@ -64,9 +64,9 @@ export default function Experience() {
               <span className="w-[65%]">
                 <p className="primary-text">{exp.title}</p>
                 <p className="text-sm xs:text-base">{exp.company}</p>
-                <p className="font-mono text-xs xs:hidden">{exp.date}</p>
+				<p className="font-mono text-xs md:hidden">{exp.date}</p>
               </span>
-              <p className="w-[35%] text-right font-mono text-sm xs:block hidden">{exp.date}</p>
+				<p className="hidden w-[35%] text-right font-mono text-sm md:block">{exp.date}</p>
             </div>
           </li>
         ))}

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 function isMobileViewport() {
-	return window.matchMedia('(max-width: 639px)').matches
+	return window.matchMedia('(max-width: 767px)').matches
 }
 
 export default function CameraTooltip() {
@@ -44,7 +44,7 @@ export default function CameraTooltip() {
 			</button>
 			<span
 				role="tooltip"
-				className={`pointer-events-none absolute top-full left-1/2 z-10 mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs text-foreground transition-opacity duration-200 dark:border-neutral-700 ${isMobileTooltipVisible ? 'opacity-100' : 'opacity-0'} sm:group-hover:opacity-100`}
+				className={`pointer-events-none absolute top-full left-1/2 z-10 mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs text-foreground transition-opacity duration-200 dark:border-neutral-700 ${isMobileTooltipVisible ? 'opacity-100' : 'opacity-0'} md:group-hover:opacity-100`}
 				style={{ fontFamily: 'Consolas, ui-monospace, monospace' }}
 			>
 				Fujifilm X100VI
