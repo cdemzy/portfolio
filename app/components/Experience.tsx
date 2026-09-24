@@ -53,22 +53,20 @@ export default function Experience() {
                 href={exp.link}
                 target="_blank"
                 rel="noreferrer"
-                className="shrink-0 w-15 h-15 flex items-center justify-center border dark:bg-[#262626] dark:border-neutral-700 rounded-full"
+                className="flex size-15 shrink-0 overflow-hidden rounded-full border border-secondary-bg dark:border-secondary-bg-dark"
               >
-                <div className="relative w-15 h-15 overflow-hidden">
-                  <Image
-                    src={exp.imgUrl}
-                    alt={exp.imgAlt}
-                    className="rounded-full"
-                  />
-                </div>
+                <Image
+                  src={exp.imgUrl}
+                  alt={exp.imgAlt}
+                  className="size-full rounded-full object-cover"
+                />
               </a>
               <span className="w-[65%]">
                 <p className="primary-text">{exp.title}</p>
                 <p className="text-sm xs:text-base">{exp.company}</p>
                 <p className="font-mono text-xs xs:hidden">{exp.date}</p>
               </span>
-              <p className="w-[35%] font-mono text-sm xs:block hidden">{exp.date}</p>
+              <p className="w-[35%] text-right font-mono text-sm xs:block hidden">{exp.date}</p>
             </div>
           </li>
         ))}
