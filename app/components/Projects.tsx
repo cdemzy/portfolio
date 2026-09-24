@@ -18,7 +18,7 @@ import ProjectIconPlaceholder from './project-icon-placeholder'
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
 import Karaoke from '@/public/projects/karaoke/logo.png'
-import InfiniteRadar from '@/public/projects/infiniteRadar/logo.png'
+import InfiniteRadar from '@/public/projects/infiniteradar/logo.png'
 import DevBoard from '@/public/projects/devboard/logo.png'
 
 interface ProjectDetails {
