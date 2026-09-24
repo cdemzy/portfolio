@@ -146,7 +146,7 @@ export default function Projects() {
 								}
 							}}
 							transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-							className="col-span-full overflow-hidden"
+							className="col-span-full -mx-7 overflow-hidden px-7"
 						>
 							<ul className="grid grid-cols-1 gap-4">
 								{displayedProjects.slice(3).map((project, index) => (
@@ -199,7 +199,7 @@ function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouse
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
 					
-						<Image src={project.imageUrl} alt="" className="size-15 object-cover" />
+						<Image src={project.imageUrl} alt="" className="size-15" />
 					
 					<div className="flex flex-wrap items-center gap-2">
 						<h3 className="font-medium leading-tight">{project.title}</h3>
