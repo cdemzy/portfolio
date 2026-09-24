@@ -192,7 +192,7 @@ interface ProjectCardProps {
 function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouseMove, project }: ProjectCardProps) {
 	return (
 		<div
-			className="relative h-full overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100! hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
+			className="relative -mx-7 h-full overflow-hidden rounded-3xl bg-transparent px-7 py-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100! hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
 			onMouseMove={onMouseMove}
 			onMouseLeave={onMouseLeave}
 		>
