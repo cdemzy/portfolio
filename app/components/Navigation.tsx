@@ -5,21 +5,18 @@ import { motion } from "framer-motion";
 import { useState, useLayoutEffect, useRef } from "react";
 
 const links = [
-    {
-      path: "/",
-      title: "Index",
-    },
-    {
-      path: "/projects",
-      title: "Projects",
-    },
-] as const;
+  {
+    path: '/',
+    title: 'Index',
+  },
+] as const
 
   export default function Navigation() {
     const pathname = `/${usePathname().split("/")[1]}`;
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const [previousHoveredIndex, setPreviousHoveredIndex] = useState<number | null>(null);
     const [linkDimensions, setLinkDimensions] = useState<Array<{x: number, width: number, height: number, top: number}>>([]);
+    const [activeIndicator, setActiveIndicator] = useState<{ x: number, width: number } | null>(null);
     const linkRefs = useRef<(HTMLElement | null)[]>([]);
     const liRefs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -38,39 +35,48 @@ const links = [
       liRefs.current[index] = el;
     };
 
-    const calculateDimensions = () => {
-      const dimensions = linkRefs.current.map((link) => {
-        if (!link) return { x: 0, width: 0, height: 0, top: 0 };
-        
-        const rect = link.getBoundingClientRect();
-        const container = link.closest('ul');
-        const containerRect = container?.getBoundingClientRect();
-        
-        return {
+    useLayoutEffect(() => {
+      const calculateDimensions = () => {
+        const dimensions = linkRefs.current.map((link) => {
+          if (!link) return { x: 0, width: 0, height: 0, top: 0 }
+
+          const rect = link.getBoundingClientRect()
+          const container = link.closest('ul')
+          const containerRect = container?.getBoundingClientRect()
+
+          return {
+            x: rect.left - (containerRect?.left || 0),
+            width: rect.width,
+            height: rect.height,
+            top: rect.top - (containerRect?.top || 0),
+          }
+        })
+
+        setLinkDimensions(dimensions)
+
+        const activeLi = activeIndex !== -1 ? liRefs.current[activeIndex] : null
+        if (!activeLi) {
+          setActiveIndicator(null)
+          return
+        }
+
+        const rect = activeLi.getBoundingClientRect()
+        const containerRect = activeLi.closest('ul')?.getBoundingClientRect()
+        setActiveIndicator({
           x: rect.left - (containerRect?.left || 0),
           width: rect.width,
-          height: rect.height,
-          top: rect.top - (containerRect?.top || 0)
-        };
-      });
-      
-      setLinkDimensions(dimensions);
-    };
+        })
+      }
 
-    useLayoutEffect(() => {
-      calculateDimensions();
-      
+      calculateDimensions()
+
       const handleResize = () => {
-        calculateDimensions();
-      };
-      
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        calculateDimensions()
+      }
 
-    useLayoutEffect(() => {
-      calculateDimensions();
-    }, [hoveredIndex, pathname]);
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }, [hoveredIndex, pathname, activeIndex])
 
     return (
       <nav className="border-b border-border dark:border-neutral-700 flex justify-end">
@@ -130,13 +136,13 @@ const links = [
                 }}
             />
             
-            {activeIndex !== -1 && liRefs.current[activeIndex] && (
+            {activeIndicator && (
                 <motion.div
                     className="absolute bottom-0 h-0.5 bg-foreground"
                     initial={false}
                     animate={{
-                        x: liRefs.current[activeIndex]?.getBoundingClientRect().left - (liRefs.current[activeIndex]?.closest('ul')?.getBoundingClientRect().left || 0) || 0,
-                        width: liRefs.current[activeIndex]?.getBoundingClientRect().width || 0,
+                        x: activeIndicator.x,
+                        width: activeIndicator.width,
                     }}
                     transition={{
                         type: "spring",

@@ -7,8 +7,8 @@ Welcome to my portfolio website — a simple, refreshed space to share my projec
 #### Version: 2.0.1
 
 ## Stack/Features
-- [Next.js v15.5.3](https://nextjs.org) 
-- [Tailwind v4](https://tailwindcss.com)
+- [Next.js v16.3.6](https://nextjs.org)
+- [Tailwind v4.3.3](https://tailwindcss.com)
 - [framer-motion v12.23.22](https://motion.dev/docs)
 - [react-icons v5.5.0](https://react-icons.github.io/react-icons)
 - [shadcn](https://ui.shadcn.com)

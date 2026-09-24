@@ -7,7 +7,7 @@ export default function NotFound() {
 				404
 			</div>
 			<div className='space-y-3'>
-				<h1 className='text-3xl font-semibold tracking-tight sm:text-4xl'>
+				<h1 className='text-3xl font-semibold tracking-tight md:text-4xl'>
 					Page not found
 				</h1>
 				<p className='secondary-text max-w-xl text-base leading-7'>
@@ -21,12 +21,6 @@ export default function NotFound() {
 					className='secondary-bg pill-hover rounded-lg px-4 py-2 transition-colors'
 				>
 					Back to index
-				</Link>
-				<Link
-					href='/projects'
-					className='border border-border pill-hover rounded-lg px-4 py-2 transition-colors dark:border-neutral-700'
-				>
-					View projects
 				</Link>
 			</div>
 		</main>
