@@ -13,7 +13,7 @@ export default function Intro() {
 				<p className="text-base secondary-text">
 					A software engineer and fourth year computer science student at Dalhousie University, interested in software engineering and product development.
 					<br /> <br />
-					When I&apos;m not coding, I&apos;m probably playing tennis, at the gym, or out taking <PhotoHover /> with my <CameraTooltip /> :]
+					When I&apos;m not coding, I&apos;m probably playing tennis, working out, or out taking <PhotoHover /> with my <CameraTooltip /> :]
 				</p>
 			</article>
 			<motion.div

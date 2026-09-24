@@ -75,7 +75,7 @@ export default function PhotoHover() {
 					className={`pointer-events-none fixed z-50 rounded-lg bg-white p-1 shadow-xl sm:p-2 ${isMobilePreview ? 'left-1/2 top-1/2 sm:w-[85vw] -translate-x-1/2 -translate-y-1/2' : ''}`}
 					style={isMobilePreview ? undefined : { left: cursorPosition.x + 16, top: cursorPosition.y + 16 }}
 				>
-					<Image alt="" className="h-auto w-[40rem] max-w-[70vw] sm:w-[32rem] rounded-lg" height={5152} loading="eager" src="/other-images/half-dome.JPG" width={6864} />
+					<Image alt="" className="h-auto w-160 max-w-[70vw] sm:w-100 rounded-lg" height={5152} loading="eager" src="/other-images/half-dome.JPG" width={6864} />
 					<figcaption className="mt-2 text-xs leading-5 text-stone-600" style={{ fontFamily: 'Consolas, ui-monospace, monospace' }}>
 						<span className="hidden sm:block">Half Dome from Glacier Point</span>
 						<span className="hidden sm:block">Yosemite National Park, California, USA · 2026</span>
