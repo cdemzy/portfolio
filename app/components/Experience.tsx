@@ -59,7 +59,6 @@ export default function Experience() {
                   <Image
                     src={exp.imgUrl}
                     alt={exp.imgAlt}
-                    fill
                     className="rounded-full"
                   />
                 </div>
