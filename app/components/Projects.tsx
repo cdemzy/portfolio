@@ -116,7 +116,7 @@ export default function Projects() {
 	}
 
 	return (
-		<section ref={sectionRef} className="index-section" id="projects">
+		<section ref={sectionRef} className="index-section scroll-mt-6" id="projects">
 			<h2 className="section-heading">Projects</h2>
 			<ul className="group grid grid-cols-1 gap-4" id="project-list">
 				{displayedProjects.slice(0, 3).map((project) => (
@@ -129,15 +129,15 @@ export default function Projects() {
 				<AnimatePresence initial={false}>
 					{isExpanded && (
 						<motion.li
-							animate={{ clipPath: 'inset(0% 0 0 0)', height: 'auto', opacity: 1, paddingTop: 16 }}
-							exit={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
-							initial={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
+							animate={{ height: 'auto' }}
+							exit={{ height: 0 }}
+							initial={{ height: 0 }}
 							onAnimationComplete={() => {
 								if (isExpanded) {
 									handleProjectsExpanded()
 								}
 							}}
-							transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+							transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
 							className="col-span-full -mx-7 overflow-hidden px-7"
 						>
 							<ul className="grid grid-cols-1 gap-4">
