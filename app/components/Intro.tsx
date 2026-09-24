@@ -27,7 +27,7 @@ export default function Intro() {
 					target='_blank'
 					rel='noopener noreferrer'
 					aria-label='Visit Charles Dela Cruz on GitHub'
-					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200'
+					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200 hover:text-gray-950 dark:hover:text-stone-50'
 				>
 					<IoLogoGithub aria-hidden='true' size={20} />
 				</a>
@@ -36,7 +36,7 @@ export default function Intro() {
 					target='_blank'
 					rel='noopener noreferrer'
 					aria-label='Visit Charles Dela Cruz on LinkedIn'
-					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200'
+					className='pill-hover secondary-text inline-flex size-10 items-center justify-center rounded-lg transition-colors duration-200 hover:text-gray-950 dark:hover:text-stone-50'
 				>
 					<IoLogoLinkedin aria-hidden='true' size={20} />
 				</a>
