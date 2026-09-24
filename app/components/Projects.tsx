@@ -3,7 +3,7 @@
 import Image, { type StaticImageData } from 'next/image'
 import { createElement, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronsUpDown } from 'lucide'
+import { ChevronsDownUp, ChevronsUpDown } from 'lucide'
 import { DiRedis } from 'react-icons/di'
 import { FaDatabase } from 'react-icons/fa'
 import { MdForum } from 'react-icons/md'
@@ -167,16 +167,17 @@ export default function Projects() {
 					)}
 				</AnimatePresence>
 			</ul>
-			<button
+			<motion.button
 				aria-label={isExpanded ? 'Collapse projects' : 'Expand projects'}
 				aria-controls="project-list"
 				aria-expanded={isExpanded}
-				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full"
+				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full transition-colors duration-150 active:bg-neutral-200 dark:active:bg-stone-700"
 				onClick={handleProjectToggle}
 				type="button"
+				whileTap={{ scale: 0.9 }}
 			>
-				<ChevronIcon icon={ChevronsUpDown} />
-			</button>
+				<ChevronIcon icon={isExpanded ? ChevronsDownUp : ChevronsUpDown} />
+			</motion.button>
 		</section>
 	)
 }
