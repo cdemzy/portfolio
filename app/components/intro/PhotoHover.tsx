@@ -20,15 +20,63 @@ export default function PhotoHover() {
 			return
 		}
 
+		const activePointerIds = new Set<number>()
+		let pointerStart: { pointerId: number, x: number, y: number, hasMultiplePointers: boolean } | null = null
+
 		function handlePointerDown(event: PointerEvent) {
-			if (isMobileViewport() && event.target instanceof Node && !photoRef.current?.contains(event.target)) {
+			if (!isMobileViewport()) {
+				return
+			}
+
+			activePointerIds.add(event.pointerId)
+
+			if (activePointerIds.size > 1 && pointerStart) {
+				pointerStart.hasMultiplePointers = true
+			}
+
+			if (event.isPrimary && event.target instanceof Node && !photoRef.current?.contains(event.target)) {
+				pointerStart = {
+					pointerId: event.pointerId,
+					x: event.clientX,
+					y: event.clientY,
+					hasMultiplePointers: activePointerIds.size > 1,
+				}
+			}
+		}
+
+		function handlePointerUp(event: PointerEvent) {
+			activePointerIds.delete(event.pointerId)
+
+			if (!pointerStart || pointerStart.pointerId !== event.pointerId) {
+				return
+			}
+
+			const hasMoved = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y) > 10
+
+			if (!pointerStart.hasMultiplePointers && !hasMoved) {
 				setPreviewMode(null)
+			}
+
+			pointerStart = null
+		}
+
+		function handlePointerCancel(event: PointerEvent) {
+			activePointerIds.delete(event.pointerId)
+
+			if (pointerStart?.pointerId === event.pointerId) {
+				pointerStart = null
 			}
 		}
 
 		document.addEventListener('pointerdown', handlePointerDown)
+		document.addEventListener('pointerup', handlePointerUp)
+		document.addEventListener('pointercancel', handlePointerCancel)
 
-		return () => document.removeEventListener('pointerdown', handlePointerDown)
+		return () => {
+			document.removeEventListener('pointerdown', handlePointerDown)
+			document.removeEventListener('pointerup', handlePointerUp)
+			document.removeEventListener('pointercancel', handlePointerCancel)
+		}
 	}, [isMobilePreview])
 
 	function handleMouseEnter() {
@@ -59,7 +107,7 @@ export default function PhotoHover() {
 				const photoBounds = photoRef.current?.getBoundingClientRect()
 
 				if (photoBounds) {
-					setCursorPosition({ x: window.innerWidth / 2, y: photoBounds.bottom + 12 })
+					setCursorPosition({ x: window.innerWidth / 2, y: Math.max(16, window.scrollY + photoBounds.bottom - 90) })
 				}
 
 				return 'mobile'
@@ -84,7 +132,7 @@ export default function PhotoHover() {
 			{previewMode && createPortal(
 				<figure
 					aria-hidden="true"
-					className={`pointer-events-none fixed z-50 rounded-lg bg-white p-2 shadow-xl md:p-2 ${isMobilePreview ? 'left-1/2 -translate-x-1/2' : '-translate-x-full'}`}
+					className={`pointer-events-none z-50 rounded-lg bg-white p-2 shadow-xl md:p-2 ${isMobilePreview ? 'absolute left-1/2 -translate-x-1/2' : 'fixed -translate-x-full'}`}
 					style={isMobilePreview ? { top: cursorPosition.y } : { left: cursorPosition.x - 16, top: cursorPosition.y + 16 }}
 				>
 					<Image alt="" className="h-auto w-160 max-w-[60vw] rounded-lg md:w-100" height={5152} loading="eager" src="/other-images/half-dome.JPG" width={6864} />
