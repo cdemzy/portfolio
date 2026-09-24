@@ -128,6 +128,10 @@ export default function Projects() {
 	}
 
 	function handleProjectsExpanded() {
+		if (!window.matchMedia('(min-width: 768px)').matches) {
+			return
+		}
+
 		sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 	}
 
@@ -174,7 +178,7 @@ export default function Projects() {
 				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full transition-colors duration-150 active:bg-neutral-200 dark:active:bg-stone-700"
 				onClick={handleProjectToggle}
 				type="button"
-				whileTap={{ scale: 0.9 }}
+				whileTap={{ scale: 1.1 }}
 			>
 				<ChevronIcon icon={isExpanded ? ChevronsDownUp : ChevronsUpDown} />
 			</motion.button>
