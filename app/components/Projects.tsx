@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { createElement, useState } from 'react'
+import { createElement, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronsUpDown } from 'lucide'
 
@@ -14,37 +14,43 @@ const projectsData = [
 	{
 		title: 'Dalhousie Forum',
 		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
-		tags: ['PHP', 'MySQL', 'JavaScript', 'Server-side Scripting'],
+		stack: ['PHP', 'JavaScript', 'MySQL'],
+		platform: ['Web'],
 		imageUrl: Forum,
 	},
 	{
 		title: 'Rigify',
 		description: 'An AI-powered PC build planner that identifies bottlenecks and estimates per-game performance.',
-		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
+		stack: ['Next.js', 'Gemini API', 'Supabase'],
+		platform: ['Web'],
 		imageUrl: Rigify,
 	},
 	{
 		title: 'Karaoke',
 		description: 'An open-source web karaoke player with a collaborative queue and simple session sharing for groups.',
-		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
+		stack: ['Next.js', 'Gemini API', 'Supabase', 'Redis'],
+		platform: ['Web'],
 		imageUrl: Karaoke,
 	},
 	{
 		title: 'Sonetix',
 		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
-		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
+		stack: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		platform: ['iOS'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'InfiniteRadar',
 		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
-		tags: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis', 'iOS Development'],
+		stack: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		platform: ['iOS', 'Web'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'DevBoard',
 		description: 'A developer workspace for personal or team projects, sprints, tasks, and AI-powered workflows.',
-		tags: ['Next.js', 'Gemini API', 'Supabase', 'Tailwindv4', 'Full-stack AI-powered project'],
+		stack: ['Next.js', 'Gemini API', 'Supabase',],
+		platform: ['Web'],
 		imageUrl: Karaoke,
 	},
 ] as const
@@ -67,6 +73,7 @@ export default function Projects() {
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 	const [isExpanded, setIsExpanded] = useState(false)
+	const sectionRef = useRef<HTMLElement>(null)
 
 	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>, index: number) => {
 		const rect = event.currentTarget.getBoundingClientRect()
@@ -81,8 +88,16 @@ export default function Projects() {
 		setHoveredIndex(null)
 	}
 
+	function handleProjectToggle() {
+		if (!isExpanded) {
+			sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+		}
+
+		setIsExpanded((currentValue) => !currentValue)
+	}
+
 	return (
-		<section className="index-section" id="projects">
+		<section ref={sectionRef} className="index-section" id="projects">
 			<h2 className="section-heading">Projects</h2>
 			<ul className="group hidden grid-cols-1 gap-4 sm:grid sm:grid-cols-2">
 				{displayedProjects.map((project, index) => (
@@ -143,7 +158,7 @@ export default function Projects() {
 				aria-controls="project-list"
 				aria-expanded={isExpanded}
 				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full sm:hidden"
-				onClick={() => setIsExpanded((currentValue) => !currentValue)}
+				onClick={handleProjectToggle}
 				type="button"
 			>
 				<ChevronIcon icon={ChevronsUpDown} />
@@ -177,6 +192,13 @@ function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouse
 				</div>
 				<div className="mt-3">
 					<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
+					<ul aria-label="Project technologies" className="mt-3 flex flex-wrap gap-2">
+						{project.stack.map((tag) => (
+							<li key={tag} className="rounded-full border border-black/10 px-2.5 py-1 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
+								{tag}
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 			<div
