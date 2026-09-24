@@ -45,7 +45,7 @@ type Project = ProjectDetails & (
 const projectsData: readonly Project[] = [
 	{
 		title: 'Dalhousie Forum',
-		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
+		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share campus ideas.',
 		stack: ['PHP', 'JavaScript', 'MySQL'],
 		platform: ['Web'],
 		placeholderIcon: MdForum,
@@ -53,21 +53,21 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Rigify',
-		description: 'An AI-powered PC build planner that identifies bottlenecks and estimates per-game performance.',
+		description: 'An AI-powered PC build planner that identifies likely bottlenecks and estimates per-game performance.',
 		stack: ['Next.js', 'Gemini API', 'Supabase'],
 		platform: ['Web'],
 		imageUrl: Rigify,
 	},
 	{
 		title: 'Karaoke',
-		description: 'An open-source web karaoke player with a collaborative queue and simple session sharing for groups.',
+		description: 'A web karaoke player with a collaborative queue and seamless session sharing for groups and friends.',
 		stack: ['Next.js', 'Gemini API', 'Supabase', 'Redis'],
 		platform: ['Web'],
 		imageUrl: Karaoke,
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
+		description: 'A native iOS app that turns Spotify listening history into detailed, interactive listening insights.',
 		stack: ['SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
@@ -82,7 +82,7 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'DevBoard',
-		description: 'A developer workspace for personal or team projects, sprints, tasks, and AI-powered workflows.',
+		description: 'A developer workspace for personal or team-based projects, sprints, tasks, and AI-powered workflows.',
 		stack: ['SwiftUI','FastAPI', 'Next.js', 'Gemini API', 'Supabase',],
 		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: DevBoard,
@@ -205,7 +205,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 					</div>
 				</div>
 				<div className="mt-3">
-					<p className="text-sm secondary-text dark:text-secondary-foreground pl-1">{project.description}</p>
+					<p className="font-mono text-sm secondary-text dark:text-secondary-foreground pl-1">{project.description}</p>
 					<ul aria-label="Project technologies" className="mt-3 flex flex-wrap gap-2">
 						{project.stack.map((tag) => {
 							const Icon = stackIcons[tag]
