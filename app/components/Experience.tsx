@@ -55,12 +55,11 @@ export default function Experience() {
                 rel="noreferrer"
                 className="shrink-0 w-15 h-15 flex items-center justify-center border dark:bg-[#262626] dark:border-neutral-700 rounded-full"
               >
-                <div className="relative w-10 h-10 overflow-hidden">
+                <div className="relative w-15 h-15 overflow-hidden">
                   <Image
                     src={exp.imgUrl}
                     alt={exp.imgAlt}
                     fill
-                    sizes="40px"
                     className="rounded-full"
                   />
                 </div>
@@ -68,7 +67,7 @@ export default function Experience() {
               <span className="w-[65%]">
                 <p className="primary-text">{exp.title}</p>
                 <p className="text-sm xs:text-base">{exp.company}</p>
-                <p className="hidden font-mono text-sm">{exp.date}</p>
+                <p className="font-mono text-xs xs:hidden">{exp.date}</p>
               </span>
               <p className="w-[35%] font-mono text-sm xs:block hidden">{exp.date}</p>
             </div>
