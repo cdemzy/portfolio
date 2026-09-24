@@ -11,6 +11,8 @@ import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, Si
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
+import HoverHalo from './HoverHalo'
+
 import Forum from '@/public/projects/dalForum/cover.png'
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
@@ -92,23 +94,8 @@ function ChevronIcon({ icon }: ChevronIconProps) {
 }
 
 export default function Projects() {
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 	const [isExpanded, setIsExpanded] = useState(false)
 	const sectionRef = useRef<HTMLElement>(null)
-
-	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>, index: number) => {
-		const rect = event.currentTarget.getBoundingClientRect()
-		setMousePosition({
-			x: event.clientX - rect.left,
-			y: event.clientY - rect.top,
-		})
-		setHoveredIndex(index)
-	}
-
-	function handleMouseLeave() {
-		setHoveredIndex(null)
-	}
 
 	function handleProjectToggle() {
 		setIsExpanded((currentValue) => !currentValue)
@@ -122,15 +109,10 @@ export default function Projects() {
 		<section ref={sectionRef} className="index-section" id="projects">
 			<h2 className="section-heading">Projects</h2>
 			<ul className="group grid grid-cols-1 gap-4" id="project-list">
-				{displayedProjects.slice(0, 3).map((project, index) => (
+				{displayedProjects.slice(0, 3).map((project) => (
 					<li key={project.title}>
 						<ProjectCard
-							index={index}
-							mousePosition={mousePosition}
-							onMouseLeave={handleMouseLeave}
-							onMouseMove={(event) => handleMouseMove(event, index)}
 							project={project}
-							hoveredIndex={hoveredIndex}
 						/>
 					</li>
 				))}
@@ -149,16 +131,9 @@ export default function Projects() {
 							className="col-span-full -mx-7 overflow-hidden px-7"
 						>
 							<ul className="grid grid-cols-1 gap-4">
-								{displayedProjects.slice(3).map((project, index) => (
+								{displayedProjects.slice(3).map((project) => (
 									<li key={project.title}>
-										<ProjectCard
-											index={index + 3}
-											mousePosition={mousePosition}
-											onMouseLeave={handleMouseLeave}
-											onMouseMove={(event) => handleMouseMove(event, index + 3)}
-											project={project}
-											hoveredIndex={hoveredIndex}
-										/>
+										<ProjectCard project={project} />
 									</li>
 								))}
 							</ul>
@@ -181,20 +156,13 @@ export default function Projects() {
 }
 
 interface ProjectCardProps {
-	hoveredIndex: number | null
-	index: number
-	mousePosition: { x: number, y: number }
-	onMouseLeave: () => void
-	onMouseMove: (event: React.MouseEvent<HTMLDivElement>) => void
 	project: (typeof projectsData)[number]
 }
 
-function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouseMove, project }: ProjectCardProps) {
+function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<div
+		<HoverHalo
 			className="relative -mx-7 h-full overflow-hidden rounded-3xl bg-transparent px-7 py-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100! hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
-			onMouseMove={onMouseMove}
-			onMouseLeave={onMouseLeave}
 		>
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
@@ -229,11 +197,6 @@ function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouse
 					</ul>
 				</div>
 			</div>
-			<div
-				aria-hidden="true"
-				className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ease-in-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
-				style={{ background: `radial-gradient(circle 550px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 100%)` }}
-			/>
-		</div>
+		</HoverHalo>
 	)
 }
