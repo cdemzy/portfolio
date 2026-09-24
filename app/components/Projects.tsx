@@ -197,7 +197,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 						<span aria-hidden="true" className="secondary-text dark:text-secondary-foreground">·</span>
 						<ul aria-label="Project platforms" className="flex flex-wrap gap-1.5">
 							{project.platform.map((platform) => (
-								<li key={platform} className="rounded-full border border-black/10 px-2 py-0.5 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
+								<li key={platform} className="rounded-l border border-black/10 px-2 py-0.5 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
 									{platform}
 								</li>
 							))}
