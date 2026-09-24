@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${interSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
-        className="antialiased primary-text scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto w-[80vw] md:w-auto md:max-w-[750px]"
+        className="antialiased primary-text scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-0 md:px-7 flex flex-col gap-12 mx-auto w-[80vw] md:w-auto md:max-w-[750px]"
       >
         <ThemeProvider
             attribute="class"
@@ -39,8 +39,9 @@ export default function RootLayout({
           >
         <Navigation/>
         {children}
-        <footer className="border-t border-border px-2 pt-4 font-mono text-sm text-stone-500 dark:border-neutral-700 dark:text-stone-400">
+        <footer className="border-t border-border px-2 pt-4 font-mono text-[0px] text-stone-500 sm:text-sm dark:border-neutral-700 dark:text-stone-400">
           © 2026 Charles Dela Cruz · All rights reserved
+          <span className="text-sm sm:hidden">&copy; 2026 Charles Dela Cruz</span>
         </footer>
         <Analytics />
         </ThemeProvider>
