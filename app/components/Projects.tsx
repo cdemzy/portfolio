@@ -53,7 +53,7 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Rigify',
-		description: 'An AI-powered PC build planner that identifies likely bottlenecks and estimates per-game performance.',
+		description: 'An AI-powered PC build planner that identifies potential bottlenecks and estimates in-game performance.',
 		stack: ['Next.js', 'Gemini API', 'Supabase'],
 		platform: ['Web'],
 		imageUrl: Rigify,
@@ -83,7 +83,7 @@ const projectsData: readonly Project[] = [
 	{
 		title: 'DevBoard',
 		description: 'A developer workspace for managing software projects and workflows, with MCP integration that connects project context directly to AI coding agents.',
-		stack: ['SwiftUI','Next.js', 'Python', 'FastAPI', 'Gemini API', 'Supabase',],
+		stack: ['SwiftUI','Next.js', 'Python', 'FastAPI', 'Supabase'],
 		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: DevBoard,
 		usesThemedLogoContainer: true,
