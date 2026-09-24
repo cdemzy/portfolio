@@ -8,7 +8,7 @@ import { DiRedis } from 'react-icons/di'
 import { FaDatabase } from 'react-icons/fa'
 import { MdForum } from 'react-icons/md'
 import { RiNextjsFill } from 'react-icons/ri'
-import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, SiSwift } from 'react-icons/si'
+import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, SiSwift, SiVapor } from 'react-icons/si'
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
@@ -67,15 +67,15 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS app that turns Spotify listening history into detailed, interactive listening insights.',
-		stack: ['SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		description: 'A native iOS app that turns Spotify listening history into detailed, interactive listening metrics.',
+		stack: ['SwiftUI', 'Vapor', 'Redis', 'SpotifyAPI'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'InfiniteRadar',
 		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
-		stack: ['SwiftUI', 'Next.js', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		stack: ['SwiftUI', 'Next.js', 'Python', 'FastAPI','Redis'],
 		platform: ['iOS', 'Web'],
 		imageUrl: InfiniteRadar,
 		logoBackgroundColor: '#FFD400',
@@ -83,7 +83,7 @@ const projectsData: readonly Project[] = [
 	{
 		title: 'DevBoard',
 		description: 'A developer workspace for personal or team-based projects, sprints, tasks, and AI-powered workflows.',
-		stack: ['SwiftUI','FastAPI', 'Next.js', 'Gemini API', 'Supabase',],
+		stack: ['SwiftUI','Next.js', 'Python', 'FastAPI', 'Gemini API', 'Supabase',],
 		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: DevBoard,
 		usesThemedLogoContainer: true,
@@ -100,6 +100,7 @@ const stackIcons: Partial<Record<string, IconType>> = {
 	'Python': SiPython,
 	'SpotifyAPI': SiSpotify,
 	'SwiftUI': SiSwift,
+	'Vapor': SiVapor,
 	'Redis': DiRedis,
 	'Supabase': TbBrandSupabase,
 }
