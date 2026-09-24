@@ -194,7 +194,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 					</div>
 				</div>
 				<div className="mt-3">
-					<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
+					<p className="text-sm secondary-text dark:text-secondary-foreground pl-1">{project.description}</p>
 					<ul aria-label="Project technologies" className="mt-3 flex flex-wrap gap-2">
 						{project.stack.map((tag) => {
 							const Icon = stackIcons[tag]
