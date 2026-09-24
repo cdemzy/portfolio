@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${interSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body
-        className="antialiased primary-text scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto w-[80vw] md:w-auto md:max-w-[750px]"
+        className="antialiased primary-text scroll-smoth font-sans mt-8 mb-30 md:mt-18 px-7 flex flex-col gap-12 mx-auto w-[90vw] md:w-auto md:max-w-[750px]"
       >
         <ThemeProvider
             attribute="class"
