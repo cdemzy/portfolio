@@ -36,7 +36,7 @@ export default function CameraTooltip() {
 		<span ref={tooltipRef} className="group relative inline-block">
 			<button
 				aria-pressed={isMobileTooltipVisible}
-				className="inline cursor-pointer border-0 bg-transparent p-0 align-baseline font-inherit text-inherit underline decoration-dotted underline-offset-4 decoration-slate-300 dark:decoration-gray-700"
+				className={`inline cursor-pointer border-0 bg-transparent p-0 align-baseline font-inherit text-inherit underline decoration-dotted underline-offset-4 decoration-slate-300 transition-colors hover:text-foreground hover:decoration-foreground focus-visible:text-foreground focus-visible:decoration-foreground dark:decoration-gray-700 dark:hover:decoration-foreground dark:focus-visible:decoration-foreground ${isMobileTooltipVisible ? 'text-foreground decoration-foreground dark:decoration-foreground' : ''}`}
 				onClick={handleClick}
 				type="button"
 			>

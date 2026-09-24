@@ -72,7 +72,7 @@ export default function PhotoHover() {
 			<button
 				ref={photoRef}
 				aria-pressed={isMobilePreview}
-				className="inline cursor-pointer border-0 bg-transparent p-0 align-baseline font-inherit text-inherit underline decoration-dotted underline-offset-4 decoration-slate-300 dark:decoration-gray-700"
+				className={`inline cursor-pointer border-0 bg-transparent p-0 align-baseline font-inherit text-inherit underline decoration-dotted underline-offset-4 decoration-slate-300 transition-colors hover:text-foreground hover:decoration-foreground focus-visible:text-foreground focus-visible:decoration-foreground dark:decoration-gray-700 dark:hover:decoration-foreground dark:focus-visible:decoration-foreground ${previewMode ? 'text-foreground decoration-foreground dark:decoration-foreground' : ''}`}
 				onClick={handleClick}
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
