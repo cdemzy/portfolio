@@ -67,14 +67,14 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS app that turns Spotify listening history into detailed, interactive listening metrics.',
+		description: 'A native iOS app that turns personal Spotify listening history into detailed, interactive listening metrics and insights.',
 		stack: ['SwiftUI', 'Vapor', 'Redis', 'SpotifyAPI'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'InfiniteRadar',
-		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
+		description: 'A real-time map visualizing live Infinite Flight aircraft activity and detailed flight data.',
 		stack: ['SwiftUI', 'Next.js', 'Python', 'FastAPI','Redis'],
 		platform: ['iOS', 'Web'],
 		imageUrl: InfiniteRadar,
@@ -82,7 +82,7 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'DevBoard',
-		description: 'A developer workspace for personal or team-based projects, sprints, tasks, and AI-powered workflows.',
+		description: 'A developer workspace for managing software projects and workflows, with MCP integration that connects project context directly to AI coding agents.',
 		stack: ['SwiftUI','Next.js', 'Python', 'FastAPI', 'Gemini API', 'Supabase',],
 		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: DevBoard,
