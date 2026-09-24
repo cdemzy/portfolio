@@ -2,11 +2,8 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 
-import NotesApp from '@/public/projects/notes/MB-M1.png'
 import Forum from '@/public/projects/dalForum/cover.png'
-import Barter from '@/public/projects/barter/cover.png'
 import Rigify from '@/public/projects/rigify/cover.png'
 import Sonetix from '@/public/projects/sonetix/cover.png'
 import Karaoke from '@/public/projects/karaoke/cover.png'
@@ -72,12 +69,9 @@ export default function Projects() {
 			<h2 className="section-heading">Projects</h2>
 			<ul className="group grid grid-cols-1 gap-4 sm:grid-cols-2">
 				{projectsData.slice().reverse().map((project, index) => (
-					<motion.li
+					<li
 						key={project.title}
 						className="relative overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
 						onMouseMove={(event) => handleMouseMove(event, index)}
 						onMouseLeave={handleMouseLeave}
 					>
@@ -97,7 +91,7 @@ export default function Projects() {
 							className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ease-in-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
 							style={{ background: `radial-gradient(circle 550px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 100%)` }}
 						/>
-					</motion.li>
+					</li>
 				))}
 			</ul>
 		</section>
