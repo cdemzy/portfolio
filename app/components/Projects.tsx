@@ -11,8 +11,6 @@ import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, Si
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
-import HoverHalo from './HoverHalo'
-
 import Forum from '@/public/projects/dalForum/cover.png'
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
@@ -161,8 +159,8 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<HoverHalo
-			className="relative -mx-7 h-full overflow-hidden rounded-3xl bg-transparent px-7 py-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100! hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
+		<div
+			className="pill-hover relative -mx-7 h-full overflow-hidden rounded-lg px-7 py-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:opacity-100!"
 		>
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
@@ -197,6 +195,6 @@ function ProjectCard({ project }: ProjectCardProps) {
 					</ul>
 				</div>
 			</div>
-		</HoverHalo>
+		</div>
 	)
 }
