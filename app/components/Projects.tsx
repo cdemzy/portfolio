@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import { createElement, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronsUpDown } from 'lucide'
@@ -11,6 +11,8 @@ import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, Si
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
+import LogoIconContainer from '@/app/components/logo-icon-container'
+
 import Forum from '@/public/projects/dalForum/cover.png'
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
@@ -18,7 +20,16 @@ import Karaoke from '@/public/projects/karaoke/logo.png'
 import InfiniteRadar from '@/public/projects/infiniteRadar/logo.png'
 import DevBoard from '@/public/projects/devboard/logo.png'
 
-const projectsData = [
+interface Project {
+	title: string
+	description: string
+	stack: readonly string[]
+	platform: readonly string[]
+	imageUrl: StaticImageData
+	usesThemedLogoContainer?: boolean
+}
+
+const projectsData: readonly Project[] = [
 	{
 		title: 'Dalhousie Forum',
 		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
@@ -60,8 +71,9 @@ const projectsData = [
 		stack: ['SwiftUI','FastAPI', 'Next.js', 'Gemini API', 'Supabase',],
 		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: DevBoard,
+		usesThemedLogoContainer: true,
 	},
-] as const
+]
 
 const stackIcons: Partial<Record<string, IconType>> = {
 	'Gemini API': SiGooglegemini,
@@ -154,7 +166,7 @@ export default function Projects() {
 }
 
 interface ProjectCardProps {
-	project: (typeof projectsData)[number]
+	project: Project
 }
 
 function ProjectCard({ project }: ProjectCardProps) {
@@ -164,9 +176,11 @@ function ProjectCard({ project }: ProjectCardProps) {
 		>
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
-					
+					{project.usesThemedLogoContainer ? (
+						<LogoIconContainer image={project.imageUrl} alt="" />
+					) : (
 						<Image src={project.imageUrl} alt="" className="size-15" />
-					
+					)}
 					<div className="flex flex-wrap items-center gap-2">
 						<h3 className="font-medium leading-tight">{project.title}</h3>
 						<span aria-hidden="true" className="secondary-text dark:text-secondary-foreground">·</span>
