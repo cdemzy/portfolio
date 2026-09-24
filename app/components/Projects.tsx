@@ -6,28 +6,41 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronsUpDown } from 'lucide'
 import { DiRedis } from 'react-icons/di'
 import { FaDatabase } from 'react-icons/fa'
+import { MdForum } from 'react-icons/md'
 import { RiNextjsFill } from 'react-icons/ri'
 import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, SiSwift } from 'react-icons/si'
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
 import LogoIconContainer from '@/app/components/logo-icon-container'
+import ProjectIconPlaceholder from './project-icon-placeholder'
 
-import Forum from '@/public/projects/dalForum/cover.png'
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
 import Karaoke from '@/public/projects/karaoke/logo.png'
 import InfiniteRadar from '@/public/projects/infiniteRadar/logo.png'
 import DevBoard from '@/public/projects/devboard/logo.png'
 
-interface Project {
+interface ProjectDetails {
 	title: string
 	description: string
 	stack: readonly string[]
 	platform: readonly string[]
-	imageUrl: StaticImageData
 	usesThemedLogoContainer?: boolean
+	logoBackgroundColor?: string
 }
+
+type Project = ProjectDetails & (
+	| {
+		imageUrl: StaticImageData
+		placeholderIcon?: never
+	}
+	| {
+		imageUrl?: never
+		placeholderIcon: IconType
+		placeholderIconColor?: string
+	}
+)
 
 const projectsData: readonly Project[] = [
 	{
@@ -35,7 +48,8 @@ const projectsData: readonly Project[] = [
 		description: 'A web forum for Dalhousie students to post discussions, connect with peers, and share ideas.',
 		stack: ['PHP', 'JavaScript', 'MySQL'],
 		platform: ['Web'],
-		imageUrl: Forum,
+		placeholderIcon: MdForum,
+		placeholderIconColor: '#FFD400',
 	},
 	{
 		title: 'Rigify',
@@ -64,6 +78,7 @@ const projectsData: readonly Project[] = [
 		stack: ['SwiftUI', 'Next.js', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
 		platform: ['iOS', 'Web'],
 		imageUrl: InfiniteRadar,
+		logoBackgroundColor: '#FFD400',
 	},
 	{
 		title: 'DevBoard',
@@ -176,11 +191,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 		>
 			<div className="relative z-10 flex h-full flex-col">
 				<div className="flex items-center gap-4">
-					{project.usesThemedLogoContainer ? (
-						<LogoIconContainer image={project.imageUrl} alt="" />
-					) : (
-						<Image src={project.imageUrl} alt="" className="size-15" />
-					)}
+					<ProjectVisual project={project} />
 					<div className="flex flex-wrap items-center gap-2">
 						<h3 className="font-medium leading-tight">{project.title}</h3>
 						<span aria-hidden="true" className="secondary-text dark:text-secondary-foreground">·</span>
@@ -211,4 +222,24 @@ function ProjectCard({ project }: ProjectCardProps) {
 			</div>
 		</div>
 	)
+}
+
+interface ProjectVisualProps {
+	project: Project
+}
+
+function ProjectVisual({ project }: ProjectVisualProps) {
+	if (hasPlaceholderIcon(project)) {
+		return <ProjectIconPlaceholder color={project.placeholderIconColor} icon={project.placeholderIcon} />
+	}
+
+	if (project.usesThemedLogoContainer || project.logoBackgroundColor) {
+		return <LogoIconContainer alt="" backgroundColor={project.logoBackgroundColor} image={project.imageUrl} />
+	}
+
+	return <Image src={project.imageUrl} alt="" className="size-15" />
+}
+
+function hasPlaceholderIcon(project: Project): project is ProjectDetails & { placeholderIcon: IconType; placeholderIconColor?: string } {
+	return project.placeholderIcon !== undefined
 }
