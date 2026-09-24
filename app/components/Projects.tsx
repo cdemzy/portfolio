@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { createElement, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronsUpDown } from 'lucide'
 
 import Forum from '@/public/projects/dalForum/cover.png'
@@ -48,6 +49,8 @@ const projectsData = [
 	},
 ] as const
 
+const displayedProjects = projectsData.slice().reverse()
+
 interface ChevronIconProps {
 	icon: typeof ChevronsUpDown
 }
@@ -65,7 +68,7 @@ export default function Projects() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 	const [isExpanded, setIsExpanded] = useState(false)
 
-	const handleMouseMove = (event: React.MouseEvent<HTMLLIElement>, index: number) => {
+	const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>, index: number) => {
 		const rect = event.currentTarget.getBoundingClientRect()
 		setMousePosition({
 			x: event.clientX - rect.left,
@@ -81,32 +84,59 @@ export default function Projects() {
 	return (
 		<section className="index-section" id="projects">
 			<h2 className="section-heading">Projects</h2>
-			<ul className="group grid grid-cols-1 gap-4 sm:grid-cols-2" id="project-list">
-				{projectsData.slice().reverse().map((project, index) => (
-					<li
-						key={project.title}
-						className={`relative overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark ${index >= 3 && !isExpanded ? 'hidden sm:list-item' : ''}`}
-						onMouseMove={(event) => handleMouseMove(event, index)}
-						onMouseLeave={handleMouseLeave}
-					>
-						<div className="relative z-10 flex h-full flex-col">
-							<div className="flex items-center gap-4">
-								<div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-black/10 bg-background shadow-sm dark:border-white/10">
-									<Image src={project.imageUrl} alt="" fill sizes="56px" className="object-cover" />
-								</div>
-								<h3 className="font-medium leading-tight">{project.title}</h3>
-							</div>
-							<div className="mt-3">
-								<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
-							</div>
-						</div>
-						<div
-							aria-hidden="true"
-							className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ease-in-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
-							style={{ background: `radial-gradient(circle 550px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 100%)` }}
+			<ul className="group hidden grid-cols-1 gap-4 sm:grid sm:grid-cols-2">
+				{displayedProjects.map((project, index) => (
+					<li key={project.title}>
+						<ProjectCard
+							index={index}
+							mousePosition={mousePosition}
+							onMouseLeave={handleMouseLeave}
+							onMouseMove={(event) => handleMouseMove(event, index)}
+							project={project}
+							hoveredIndex={hoveredIndex}
 						/>
 					</li>
 				))}
+			</ul>
+			<ul className="group flex flex-col sm:hidden" id="project-list">
+				{displayedProjects.slice(0, 3).map((project, index) => (
+					<li key={project.title} className={index < 2 ? 'mb-4' : undefined}>
+						<ProjectCard
+							index={index}
+							mousePosition={mousePosition}
+							onMouseLeave={handleMouseLeave}
+							onMouseMove={(event) => handleMouseMove(event, index)}
+							project={project}
+							hoveredIndex={hoveredIndex}
+						/>
+					</li>
+				))}
+				<AnimatePresence initial={false}>
+					{isExpanded && (
+						<motion.li
+							animate={{ clipPath: 'inset(0% 0 0 0)', height: 'auto', opacity: 1, paddingTop: 16 }}
+							exit={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
+							initial={{ clipPath: 'inset(100% 0 0 0)', height: 0, opacity: 0, paddingTop: 0 }}
+							transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+							className="overflow-hidden"
+						>
+							<ul className="flex flex-col gap-4">
+								{displayedProjects.slice(3).map((project, index) => (
+									<li key={project.title}>
+										<ProjectCard
+											index={index + 3}
+											mousePosition={mousePosition}
+											onMouseLeave={handleMouseLeave}
+											onMouseMove={(event) => handleMouseMove(event, index + 3)}
+											project={project}
+											hoveredIndex={hoveredIndex}
+										/>
+									</li>
+								))}
+							</ul>
+						</motion.li>
+					)}
+				</AnimatePresence>
 			</ul>
 			<button
 				aria-label={isExpanded ? 'Collapse projects' : 'Expand projects'}
@@ -119,5 +149,41 @@ export default function Projects() {
 				<ChevronIcon icon={ChevronsUpDown} />
 			</button>
 		</section>
+	)
+}
+
+interface ProjectCardProps {
+	hoveredIndex: number | null
+	index: number
+	mousePosition: { x: number, y: number }
+	onMouseLeave: () => void
+	onMouseMove: (event: React.MouseEvent<HTMLDivElement>) => void
+	project: (typeof projectsData)[number]
+}
+
+function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouseMove, project }: ProjectCardProps) {
+	return (
+		<div
+			className="relative h-full overflow-hidden rounded-3xl bg-transparent p-6 transition-[background-color,opacity] duration-400 group-hover:opacity-50 hover:!opacity-100 hover:bg-secondary-bg dark:hover:bg-secondary-bg-dark"
+			onMouseMove={onMouseMove}
+			onMouseLeave={onMouseLeave}
+		>
+			<div className="relative z-10 flex h-full flex-col">
+				<div className="flex items-center gap-4">
+					<div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-black/10 bg-background shadow-sm dark:border-white/10">
+						<Image src={project.imageUrl} alt="" fill sizes="56px" className="object-cover" />
+					</div>
+					<h3 className="font-medium leading-tight">{project.title}</h3>
+				</div>
+				<div className="mt-3">
+					<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
+				</div>
+			</div>
+			<div
+				aria-hidden="true"
+				className={`pointer-events-none absolute inset-0 transition-opacity duration-300 ease-in-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
+				style={{ background: `radial-gradient(circle 550px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 100%)` }}
+			/>
+		</div>
 	)
 }
