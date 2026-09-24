@@ -4,6 +4,12 @@ import Image from 'next/image'
 import { createElement, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronsUpDown } from 'lucide'
+import { DiRedis } from 'react-icons/di'
+import { FaDatabase } from 'react-icons/fa'
+import { RiNextjsFill } from 'react-icons/ri'
+import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, SiSwift } from 'react-icons/si'
+import { TbBrandSupabase } from 'react-icons/tb'
+import type { IconType } from 'react-icons'
 
 import Forum from '@/public/projects/dalForum/cover.png'
 import Rigify from '@/public/projects/rigify/cover.png'
@@ -35,25 +41,39 @@ const projectsData = [
 	{
 		title: 'Sonetix',
 		description: 'A native iOS app that turns Spotify listening history into detailed, interactive insights.',
-		stack: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		stack: ['SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'InfiniteRadar',
 		description: 'A real-time flight tracking map visualizing live Infinite Flight aircraft activities and flight data.',
-		stack: ['Swift', 'SwiftUI', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
+		stack: ['SwiftUI', 'Next.js', 'SpotifyAPI', 'Python', 'FastAPI', 'Redis'],
 		platform: ['iOS', 'Web'],
 		imageUrl: Sonetix,
 	},
 	{
 		title: 'DevBoard',
 		description: 'A developer workspace for personal or team projects, sprints, tasks, and AI-powered workflows.',
-		stack: ['Next.js', 'Gemini API', 'Supabase',],
-		platform: ['Web'],
+		stack: ['SwiftUI','FastAPI', 'Next.js', 'Gemini API', 'Supabase',],
+		platform: ['MacOS', 'iOS', 'Web'],
 		imageUrl: Karaoke,
 	},
 ] as const
+
+const stackIcons: Partial<Record<string, IconType>> = {
+	'Gemini API': SiGooglegemini,
+	'FastAPI': SiFastapi,
+	'JavaScript': SiJavascript,
+	'MySQL': FaDatabase,
+	'Next.js': RiNextjsFill,
+	'PHP': SiPhp,
+	'Python': SiPython,
+	'SpotifyAPI': SiSpotify,
+	'SwiftUI': SiSwift,
+	'Redis': DiRedis,
+	'Supabase': TbBrandSupabase,
+}
 
 const displayedProjects = projectsData.slice().reverse()
 
@@ -89,17 +109,14 @@ export default function Projects() {
 	}
 
 	function handleProjectToggle() {
-		if (!isExpanded) {
-			sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-		}
-
+		sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 		setIsExpanded((currentValue) => !currentValue)
 	}
 
 	return (
 		<section ref={sectionRef} className="index-section" id="projects">
 			<h2 className="section-heading">Projects</h2>
-			<ul className="group hidden grid-cols-1 gap-4 sm:grid sm:grid-cols-2">
+			<ul className="group hidden grid-cols-1 gap-4 md:grid md:grid-cols-2">
 				{displayedProjects.map((project, index) => (
 					<li key={project.title}>
 						<ProjectCard
@@ -113,7 +130,7 @@ export default function Projects() {
 					</li>
 				))}
 			</ul>
-			<ul className="group flex flex-col sm:hidden" id="project-list">
+			<ul className="group flex flex-col md:hidden" id="project-list">
 				{displayedProjects.slice(0, 3).map((project, index) => (
 					<li key={project.title} className={index < 2 ? 'mb-4' : undefined}>
 						<ProjectCard
@@ -157,7 +174,7 @@ export default function Projects() {
 				aria-label={isExpanded ? 'Collapse projects' : 'Expand projects'}
 				aria-controls="project-list"
 				aria-expanded={isExpanded}
-				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full sm:hidden"
+				className="pill-hover secondary-bg mx-auto mt-4 flex size-10 items-center justify-center rounded-full md:hidden"
 				onClick={handleProjectToggle}
 				type="button"
 			>
@@ -188,16 +205,31 @@ function ProjectCard({ hoveredIndex, index, mousePosition, onMouseLeave, onMouse
 					<div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-black/10 bg-background shadow-sm dark:border-white/10">
 						<Image src={project.imageUrl} alt="" fill sizes="56px" className="object-cover" />
 					</div>
-					<h3 className="font-medium leading-tight">{project.title}</h3>
+					<div className="flex flex-wrap items-center gap-2">
+						<h3 className="font-medium leading-tight">{project.title}</h3>
+						<span aria-hidden="true" className="secondary-text dark:text-secondary-foreground">·</span>
+						<ul aria-label="Project platforms" className="flex flex-wrap gap-1.5">
+							{project.platform.map((platform) => (
+								<li key={platform} className="rounded-full border border-black/10 px-2 py-0.5 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
+									{platform}
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 				<div className="mt-3">
 					<p className="text-sm secondary-text dark:text-secondary-foreground">{project.description}</p>
 					<ul aria-label="Project technologies" className="mt-3 flex flex-wrap gap-2">
-						{project.stack.map((tag) => (
-							<li key={tag} className="rounded-full border border-black/10 px-2.5 py-1 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
-								{tag}
-							</li>
-						))}
+						{project.stack.map((tag) => {
+							const Icon = stackIcons[tag]
+
+							return (
+								<li key={tag} className="flex items-center gap-1.5 rounded-full border border-black/10 px-2.5 py-1 text-xs secondary-text dark:border-white/10 dark:text-secondary-foreground">
+									{Icon && <Icon aria-hidden="true" className="size-3.5" />}
+									{tag}
+								</li>
+							)
+						})}
 					</ul>
 				</div>
 			</div>
