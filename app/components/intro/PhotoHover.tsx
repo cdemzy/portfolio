@@ -59,7 +59,7 @@ export default function PhotoHover() {
 				const photoBounds = photoRef.current?.getBoundingClientRect()
 
 				if (photoBounds) {
-					setCursorPosition({ x: window.innerWidth / 2, y: photoBounds.bottom + 12 })
+					setCursorPosition({ x: window.innerWidth / 2, y: Math.max(16, photoBounds.bottom - 90) })
 				}
 
 				return 'mobile'
