@@ -13,6 +13,7 @@ export default function PhotoHover() {
 	const photoRef = useRef<HTMLButtonElement>(null)
 	const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 	const [previewMode, setPreviewMode] = useState<'cursor' | 'mobile' | null>(null)
+	const [isImageLoaded, setIsImageLoaded] = useState(false)
 	const isMobilePreview = previewMode === 'mobile'
 
 	useEffect(() => {
@@ -132,10 +133,25 @@ export default function PhotoHover() {
 			{previewMode && createPortal(
 				<figure
 					aria-hidden="true"
-					className={`pointer-events-none z-50 rounded-lg bg-white p-2 shadow-xl md:p-2 ${isMobilePreview ? 'absolute left-1/2 -translate-x-1/2' : 'fixed -translate-x-full'}`}
+					className={`pointer-events-none z-50 w-160 max-w-[60vw] rounded-lg bg-white p-2 shadow-xl md:w-100 md:p-2 ${isMobilePreview ? 'absolute left-1/2 -translate-x-1/2' : 'fixed -translate-x-full'}`}
 					style={isMobilePreview ? { top: cursorPosition.y } : { left: cursorPosition.x - 16, top: cursorPosition.y + 16 }}
 				>
-					<Image alt="" className="h-auto w-160 max-w-[60vw] rounded-lg md:w-100" height={5152} loading="eager" src="/other-images/half-dome.JPG" width={6864} />
+					<div className="relative aspect-[5152/6864] w-full overflow-hidden rounded-lg bg-stone-100">
+						{!isImageLoaded && (
+							<div className="absolute inset-0 flex items-center justify-center">
+								<span className="size-6 animate-spin rounded-full border-2 border-stone-300 border-t-stone-600" />
+							</div>
+						)}
+						<Image
+							alt=""
+							className={`object-contain transition-opacity duration-300 ${isImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+							fill
+							loading="eager"
+							onLoad={() => setIsImageLoaded(true)}
+							sizes="(min-width: 768px) 25rem, min(40rem, 60vw)"
+							src="/other-images/half-dome.JPG"
+						/>
+					</div>
 					<figcaption className="mt-1 pl-1 text-xs leading-5 text-stone-600" style={{ fontFamily: 'Consolas, ui-monospace, monospace' }}>
 						<span className="hidden md:block">Half Dome from Glacier Point</span>
 						<span className="hidden md:block">Yosemite National Park, California, USA · 2026</span>

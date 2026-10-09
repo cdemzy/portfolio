@@ -12,8 +12,8 @@ import { SiFastapi, SiGooglegemini, SiJavascript, SiPhp, SiPython, SiSpotify, Si
 import { TbBrandSupabase } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 
-import LogoIconContainer from '@/app/components/logo-icon-container'
-import ProjectIconPlaceholder from './project-icon-placeholder'
+import LogoIconContainer from '@/app/components/ui/logo-icon-container'
+import ProjectIconPlaceholder from './ui/project-icon-placeholder'
 
 import Rigify from '@/public/projects/rigify/logo.png'
 import Sonetix from '@/public/projects/sonetix/logo.png'
@@ -67,7 +67,7 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS app that turns personal Spotify listening history into detailed, interactive listening metrics and insights.',
+		description: 'A native iOS app that turns personal Spotify listening history into detailed, interactive metrics and insights.',
 		stack: ['SwiftUI', 'Vapor', 'Redis', 'SpotifyAPI'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
