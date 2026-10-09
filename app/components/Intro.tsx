@@ -32,7 +32,7 @@ export default function Intro() {
 					>
 						<IoLogoGithub aria-hidden='true' size={20} />
 					</a>
-					<span role='tooltip' className='pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs font-[Consolas] text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:border-neutral-700'>
+					<span role='tooltip' className='pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs font-mono text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:border-neutral-700'>
 						GitHub
 					</span>
 				</span>
@@ -46,7 +46,7 @@ export default function Intro() {
 					>
 						<IoLogoLinkedin aria-hidden='true' size={20} />
 					</a>
-					<span role='tooltip' className='pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs font-[Consolas] text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:border-neutral-700'>
+					<span role='tooltip' className='pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2 py-1 text-xs font-mono text-foreground opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 dark:border-neutral-700'>
 						LinkedIn
 					</span>
 				</span>
