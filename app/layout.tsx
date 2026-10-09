@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next'
 import "./globals.css";
-import { ThemeProvider } from "@/app/components/ThemeProvider"
+import { ThemeProvider } from "@/app/components/ui/ThemeProvider"
 
 import Navigation from "./components/Navigation";
 
