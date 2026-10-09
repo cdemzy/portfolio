@@ -67,7 +67,7 @@ const projectsData: readonly Project[] = [
 	},
 	{
 		title: 'Sonetix',
-		description: 'A native iOS app that turns personal Spotify listening history into detailed, interactive listening metrics and insights.',
+		description: 'A native iOS app that turns personal Spotify listening history into detailed, interactive metrics and insights.',
 		stack: ['SwiftUI', 'Vapor', 'Redis', 'SpotifyAPI'],
 		platform: ['iOS'],
 		imageUrl: Sonetix,
